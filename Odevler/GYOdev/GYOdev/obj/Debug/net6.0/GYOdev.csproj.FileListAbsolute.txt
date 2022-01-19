@@ -1,0 +1,15 @@
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\bin\Debug\net6.0\GYOdev.exe
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\bin\Debug\net6.0\GYOdev.deps.json
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\bin\Debug\net6.0\GYOdev.runtimeconfig.json
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\bin\Debug\net6.0\GYOdev.dll
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\bin\Debug\net6.0\ref\GYOdev.dll
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\bin\Debug\net6.0\GYOdev.pdb
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.csproj.AssemblyReference.cache
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.AssemblyInfoInputs.cache
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.AssemblyInfo.cs
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.csproj.CoreCompileInputs.cache
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.dll
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\ref\GYOdev.dll
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.pdb
+C:\Users\Cihan\Desktop\eTicaret\server\GYOdev\GYOdev\obj\Debug\net6.0\GYOdev.genruntimeconfig.cache
