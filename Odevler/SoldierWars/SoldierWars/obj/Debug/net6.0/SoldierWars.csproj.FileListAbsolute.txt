@@ -1,0 +1,15 @@
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.csproj.AssemblyReference.cache
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.AssemblyInfoInputs.cache
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.AssemblyInfo.cs
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.csproj.CoreCompileInputs.cache
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\bin\Debug\net6.0\SoldierWars.exe
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\bin\Debug\net6.0\SoldierWars.deps.json
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\bin\Debug\net6.0\SoldierWars.runtimeconfig.json
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\bin\Debug\net6.0\SoldierWars.dll
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\bin\Debug\net6.0\ref\SoldierWars.dll
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\bin\Debug\net6.0\SoldierWars.pdb
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.dll
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\ref\SoldierWars.dll
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.pdb
+C:\Users\Cihan\Desktop\projeler\SoldierWars\SoldierWars\obj\Debug\net6.0\SoldierWars.genruntimeconfig.cache
