@@ -12,9 +12,9 @@ namespace IntroEF.Models
         public  string Title { get; set; }
         public double Price { get; set; }
         public int? AuthorId { get; set; }
-        public Author Author { get; set; }
+        public Author Author { get; set; } = new Author();
         public string Description { get; set; }
-        public List<Genre> Genres { get; set; }
+        public List<Genre> Genres { get; set; } = new List<Genre>();
         public List<Comment> Comments { get; set; }
         public List<CartItem> CartItems { get; set; }
     }

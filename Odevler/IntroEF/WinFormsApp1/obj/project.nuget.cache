@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/1dN//AuZh1qy3IwxlgwreVL8gn22RN0W6knM6Ee4RaBB00fbCFSmfthLg6VjgEZQx+ptLDLsId4D9HGkESH3A==",
+  "dgSpecHash": "ooP7RBSqT809y7ADFoYKEmA7MUr/2IScNT9IgbOjWREHGqgjs1HPdSPCA8zQwfsD0a/mZmptEYVEZco1NJQpTw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrspy\\source\\repos\\IntroEF\\WinFormsApp1\\WinFormsApp1.csproj",
+  "projectFilePath": "C:\\Users\\mrspy\\Desktop\\projeler\\TurkcellGY\\Odevler\\IntroEF\\WinFormsApp1\\WinFormsApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrspy\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\mrspy\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

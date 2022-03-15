@@ -10,38 +10,67 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            // initialize context
             context = new BookstoreDbContext();
+            // updating necessary selections
             UpdateBookGenres();
+            UpdateAuthors();
         }
         private void UpdateBookGenres()
         {
-            comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(context.Genres.Select(x => x.Name).ToArray());
-            comboBox1.SelectedItem = comboBox1.Items[0];
+            checkedListBox1.DataSource = context.Genres.Select(x => x.Name).ToList();
+            checkedListBox1.SelectedItem = null;
         }
-
-        private void label5_Click(object sender, EventArgs e)
+        private void UpdateAuthors()
         {
-
+            var authors = context.Authors.Select(author => new { Id= author.Id, FullName = author.FullName}).ToList();
+            comboBox2.DataSource = authors;
+            comboBox2.DisplayMember = "FullName";
+            comboBox2.ValueMember = "Id";
+            comboBox2.SelectedItem = null;
         }
-
-        private void label8_Click(object sender, EventArgs e)
+        private bool IsBookInputsValid()
         {
+            if (textBox1.Text == String.Empty || textBox2.Text == String.Empty || comboBox2.SelectedItem == null || checkedListBox1.SelectedItem == null)
+            {
+                return false;
+            }
 
+            return true;
         }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private bool IsUserInputsValid()
         {
+            if (textBox7.Text == String.Empty || textBox8.Text == String.Empty || textBox9.Text == String.Empty)
+            {
+                return false;
+            }
 
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+            return true;
+        }private bool IsBookGenreInputsValid()
         {
+            if (textBox5.Text == String.Empty)
+            {
+                return false;
+            }
 
+            return true;
+        }private bool IsAuthorInputsValid()
+        {
+            if (textBox6.Text == String.Empty)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (!IsAuthorInputsValid())
+            {
+                MessageBox.Show("Zorunlu alanlardan bir veya birkaçını doldurmadın.");
+                return;
+            }
             context.Authors.Add(new Author { BirthDate = dateTimePicker1.Value, FullName = textBox6.Text });
             int result = context.SaveChanges();
 
@@ -50,7 +79,7 @@ namespace WinFormsApp1
                     MessageBox.Show("Yazar başarıyla eklendi");
                     textBox6.Text = String.Empty;
                     dateTimePicker1.Value = DateTime.Now;
-
+                    UpdateAuthors();
                     break;
                 default:
                     MessageBox.Show("Yazar eklenirken bir sorunla karşılaşıldı");
@@ -61,8 +90,11 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            BookstoreDbContext context = new BookstoreDbContext();
+            if (!IsBookGenreInputsValid())
+            {
+                MessageBox.Show("Zorunlu alanlardan bir veya birkaçını doldurmadın.");
+                return;
+            }
             context.Genres.Add(new Genre { Name= textBox5.Text});
             int result = context.SaveChanges();
 
@@ -79,18 +111,13 @@ namespace WinFormsApp1
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
+            if (!IsUserInputsValid())
+            {
+                MessageBox.Show("Zorunlu alanlardan bir veya birkaçını doldurmadın.");
+                return;
+            }
             context.Users.Add(new User { UserName = textBox7.Text, Address = textBox10.Text, Email = textBox9.Text, Password = textBox8.Text, SignedUpDate=DateTime.Now });
             int result = context.SaveChanges();
 
@@ -113,47 +140,54 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!IsBookInputsValid())
+            {
+                MessageBox.Show("Zorunlu alanlardan bir veya birkaçını doldurmadın.");
+                return;
+            }
+
             Book book = new Book
             {
                 Title = textBox1.Text,
                 Price = Double.Parse(textBox2.Text),
-                AuthorId = Int32.Parse(textBox3.Text),
                 Description = textBox4.Text
             };
-            if (comboBox1.SelectedItem is not null)
+
+            List<Genre> checkedGenres = new List<Genre>();
+            for (int i = 0; i< checkedListBox1.CheckedItems.Count; i++)
             {
-                string selectedItemName = comboBox1.SelectedItem.ToString();
-                var genre = context.Genres.FirstOrDefault(gen => gen.Name == selectedItemName);
-                book.Genres = new List<Genre> { genre };
+                //checkedGenres.Add();
+                string genreName = checkedListBox1.CheckedItems[i].ToString();
+                Genre genreSelected = context.Genres.FirstOrDefault(genre => genre.Name == genreName);
+                if (genreSelected != null)
+                    checkedGenres.Add(genreSelected);
             }
-            else
-            {
-                MessageBox.Show("Genre seçimi yapınız");
-                return;
-            }
+
+            checkedGenres.ForEach(genre => book.Genres.Add(genre));
+            //var genre = context.Genres.FirstOrDefault(gen => gen.Name == selectedItemName);
+            //book.Genres.Add(genre);
+
+            book.Author = context.Authors.FirstOrDefault(x => x.Id == (int)comboBox2.SelectedValue);
+
+
             context.Books.Add(book);
 
             int result = context.SaveChanges();
 
+            // after adding
             if (result> 0)
             {
                 MessageBox.Show("Kitap başarıyla eklendi");
                 UpdateBookGenres();
+                UpdateAuthors();
                 textBox1.Text = String.Empty;
                 textBox2.Text = String.Empty;
-                textBox3.Text = String.Empty;
                 textBox4.Text = String.Empty;
-                comboBox1.SelectedItem = comboBox1.Items[0];
             }
             else
             {
                 MessageBox.Show("Kitap eklenirken bir sorunla karşılaşıldı");
             }
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -180,7 +214,7 @@ namespace WinFormsApp1
             dataForm.Show();
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }

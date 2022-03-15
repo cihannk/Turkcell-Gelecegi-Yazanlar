@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QiK5YFaqwH5+7jr07upEShDRJCUKdCPgh1nScR08fK40H72tBqv1XH6we4S8IYM0azgcWPe0hrTKrb8hPAUlEg==",
+  "dgSpecHash": "ZsQ900A3Jalc2EhmDx6GbLI2e2h/O2ltq+Eyf0WFGC3an1MZMEDKXvtCUlIwPckarYP2L8N5ZcmdQ37/S3zGOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrspy\\source\\repos\\IntroEF\\IntroEF\\IntroEF.csproj",
+  "projectFilePath": "C:\\Users\\mrspy\\Desktop\\projeler\\TurkcellGY\\Odevler\\IntroEF\\IntroEF\\IntroEF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrspy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mrspy\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

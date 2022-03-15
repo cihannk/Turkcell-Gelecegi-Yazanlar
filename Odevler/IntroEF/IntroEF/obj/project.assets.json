@@ -1865,11 +1865,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrspy\\source\\repos\\IntroEF\\IntroEF\\IntroEF.csproj",
+      "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\TurkcellGY\\Odevler\\IntroEF\\IntroEF\\IntroEF.csproj",
       "projectName": "IntroEF",
-      "projectPath": "C:\\Users\\mrspy\\source\\repos\\IntroEF\\IntroEF\\IntroEF.csproj",
+      "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\TurkcellGY\\Odevler\\IntroEF\\IntroEF\\IntroEF.csproj",
       "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrspy\\source\\repos\\IntroEF\\IntroEF\\obj\\",
+      "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\TurkcellGY\\Odevler\\IntroEF\\IntroEF\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
