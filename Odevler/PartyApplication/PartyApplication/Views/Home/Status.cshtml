@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Status";
+    Layout = "_Layout";
+}
+
+@{
+    if (ViewBag.JoinSuccess)
+    {
+        <p>Partiye başarıyla Katıldın!</p>
+    }
+    else
+    {
+        <p>Yaşın tutmadığından partiye katılamadın :(</p>
+    }
+    <a asp-action="Index">Ana sayfaya dönmek için tıkla</a>
+}
+
+
+

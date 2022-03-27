@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\mrspy\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\mrspy\\.nuget\\packages"
+    ]
+  }
+}

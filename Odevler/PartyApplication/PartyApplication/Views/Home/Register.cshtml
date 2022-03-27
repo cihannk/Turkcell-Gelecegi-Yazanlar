@@ -1,0 +1,27 @@
+﻿@model PartyAttendee
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+
+<form method="post">
+    <div>
+        <label>İsim</label>
+        <input asp-for=Name placeholder="name" />
+        <span asp-validation-for=Name></span>
+    </div>
+    <div>
+        <label>Yaş</label>
+        <input asp-for=Age placeholder="age" />
+        <span asp-validation-for=Age></span>
+    </div>
+    <div>
+        <label>Gelecek misin?</label>
+        <input asp-for=DoesUserCome placeholder="doesUserCome" />
+        <span asp-validation-for=DoesUserCome></span>
+    </div>
+    <button type="submit">Gönder</button>
+    
+</form>
+
