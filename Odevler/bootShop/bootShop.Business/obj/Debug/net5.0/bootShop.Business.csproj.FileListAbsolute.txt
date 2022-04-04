@@ -1,0 +1,17 @@
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\bin\Debug\net5.0\bootShop.Business.deps.json
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\bin\Debug\net5.0\bootShop.Business.dll
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\bin\Debug\net5.0\bootShop.Business.pdb
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\bin\Debug\net5.0\bootShop.Entities.dll
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\bin\Debug\net5.0\bootShop.Entities.pdb
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.csproj.AssemblyReference.cache
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.AssemblyInfoInputs.cache
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.AssemblyInfo.cs
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.csproj.CoreCompileInputs.cache
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.csproj.CopyComplete
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.dll
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\refint\bootShop.Business.dll
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\bootShop.Business.pdb
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\obj\Debug\net5.0\ref\bootShop.Business.dll
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\bin\Debug\net5.0\bootShop.DataAccess.dll
+C:\Users\mrspy\Desktop\pratikler\bootShop\bootShop.Business\bin\Debug\net5.0\bootShop.DataAccess.pdb
