@@ -43,6 +43,11 @@ namespace bootShop.DataAccess.Repositories.Concrete
             throw new NotImplementedException();
         }
 
+        public Task<bool> IsExist(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<int> Update(Category entity)
         {
             throw new NotImplementedException();

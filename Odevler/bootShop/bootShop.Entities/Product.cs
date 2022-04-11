@@ -15,6 +15,7 @@ namespace bootShop.Entities
         public Category Category { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
+        public bool IsDeleted { get; set; }
         public string ImageUrl { get; set; }
 
     }

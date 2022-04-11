@@ -73,6 +73,9 @@ namespace bootShop.DataAccess.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
@@ -94,9 +97,10 @@ namespace bootShop.DataAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 4, 3, 22, 19, 20, 885, DateTimeKind.Local).AddTicks(4139),
+                            CreatedDate = new DateTime(2022, 4, 10, 19, 20, 57, 373, DateTimeKind.Local).AddTicks(6844),
                             Discount = 0.14999999999999999,
                             ImageUrl = "https://productimages.hepsiburada.net/s/49/550/10986386784306.jpg/format:webp",
+                            IsDeleted = false,
                             Name = "IPhone 13",
                             Price = 1200.0
                         },
@@ -104,9 +108,10 @@ namespace bootShop.DataAccess.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 4, 3, 22, 19, 20, 887, DateTimeKind.Local).AddTicks(3515),
+                            CreatedDate = new DateTime(2022, 4, 10, 19, 20, 57, 374, DateTimeKind.Local).AddTicks(8302),
                             Discount = 0.14999999999999999,
                             ImageUrl = "https://productimages.hepsiburada.net/s/49/550/10986386784306.jpg/format:webp",
+                            IsDeleted = false,
                             Name = "Samsung S22",
                             Price = 1200.0
                         },
@@ -114,9 +119,10 @@ namespace bootShop.DataAccess.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 4, 3, 22, 19, 20, 887, DateTimeKind.Local).AddTicks(3555),
+                            CreatedDate = new DateTime(2022, 4, 10, 19, 20, 57, 374, DateTimeKind.Local).AddTicks(8323),
                             Discount = 0.14999999999999999,
                             ImageUrl = "https://productimages.hepsiburada.net/s/49/550/10986386784306.jpg/format:webp",
+                            IsDeleted = false,
                             Name = "Xiaomi",
                             Price = 1200.0
                         },
@@ -124,9 +130,10 @@ namespace bootShop.DataAccess.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 4, 3, 22, 19, 20, 887, DateTimeKind.Local).AddTicks(3559),
+                            CreatedDate = new DateTime(2022, 4, 10, 19, 20, 57, 374, DateTimeKind.Local).AddTicks(8326),
                             Discount = 0.14999999999999999,
                             ImageUrl = "https://productimages.hepsiburada.net/s/49/550/10986386784306.jpg/format:webp",
+                            IsDeleted = false,
                             Name = "Apple Mac",
                             Price = 2000.0
                         },
@@ -134,9 +141,10 @@ namespace bootShop.DataAccess.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 4, 3, 22, 19, 20, 887, DateTimeKind.Local).AddTicks(3561),
+                            CreatedDate = new DateTime(2022, 4, 10, 19, 20, 57, 374, DateTimeKind.Local).AddTicks(8328),
                             Discount = 0.14999999999999999,
                             ImageUrl = "https://productimages.hepsiburada.net/s/49/550/10986386784306.jpg/format:webp",
+                            IsDeleted = false,
                             Name = "Lenovo",
                             Price = 1200.0
                         },
@@ -144,9 +152,10 @@ namespace bootShop.DataAccess.Migrations
                         {
                             Id = 6,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2022, 4, 3, 22, 19, 20, 887, DateTimeKind.Local).AddTicks(3564),
+                            CreatedDate = new DateTime(2022, 4, 10, 19, 20, 57, 374, DateTimeKind.Local).AddTicks(8332),
                             Discount = 0.14999999999999999,
                             ImageUrl = "https://productimages.hepsiburada.net/s/49/550/10986386784306.jpg/format:webp",
+                            IsDeleted = false,
                             Name = "XBox",
                             Price = 1200.0
                         });

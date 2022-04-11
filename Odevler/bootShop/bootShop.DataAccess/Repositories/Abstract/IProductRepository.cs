@@ -10,5 +10,6 @@ namespace bootShop.DataAccess.Repositories
     public interface IProductRepository: IRepository<Product>
     {
         Task<IEnumerable<Product>> SearchProductsByName(string name);
+        Task SoftDelete(int id);
     }
 }

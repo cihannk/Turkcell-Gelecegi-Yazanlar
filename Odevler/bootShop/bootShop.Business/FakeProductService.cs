@@ -1,4 +1,6 @@
-﻿using bootShop.Entities;
+﻿using bootShop.Dtos.Requests;
+using bootShop.Dtos.Responses;
+using bootShop.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -26,12 +28,37 @@ namespace bootShop.Business
             throw new NotImplementedException();
         }
 
+        public Task<int> AddProduct(AddProductRequest product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetProductsResponse> GetProductById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Product> GetProducts()
         {
             return products;
         }
 
-        Task<IEnumerable<Product>> IProductService.GetProducts()
+        public Task<bool> IsExist(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SoftDeleteProduct(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> UpdateProduct(UpdateProductRequest product)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<GetProductsResponse>> IProductService.GetProducts()
         {
             throw new NotImplementedException();
         }

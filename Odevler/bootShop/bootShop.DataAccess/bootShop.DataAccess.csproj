@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\bootShop.Dtos\bootShop.Dtos.csproj" />
     <ProjectReference Include="..\bootShop.Entities\bootShop.Entities.csproj" />
   </ItemGroup>
 

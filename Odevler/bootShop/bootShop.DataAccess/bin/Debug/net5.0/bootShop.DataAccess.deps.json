@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore": "5.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.15",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.15",
+          "bootShop.Dtos": "1.0.0",
           "bootShop.Entities": "1.0.0"
         },
         "runtime": {
@@ -1077,6 +1078,11 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "bootShop.Dtos/1.0.0": {
+        "runtime": {
+          "bootShop.Dtos.dll": {}
+        }
+      },
       "bootShop.Entities/1.0.0": {
         "runtime": {
           "bootShop.Entities.dll": {}
@@ -1775,6 +1781,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "bootShop.Dtos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "bootShop.Entities/1.0.0": {
       "type": "project",

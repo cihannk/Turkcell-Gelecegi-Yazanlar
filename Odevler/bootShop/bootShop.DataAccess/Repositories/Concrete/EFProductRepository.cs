@@ -40,10 +40,23 @@ namespace bootShop.DataAccess.Repositories
             return product;
         }
 
+        public async Task<bool> IsExist(int id)
+        {
+            var isExist = await _context.Products.AnyAsync(x => x.Id == id);
+            return isExist;
+        }
+
         public async Task<IEnumerable<Product>> SearchProductsByName(string name)
         {
             var products = await _context.Products.Where(product => product.Name.Contains(name)).ToListAsync();
             return products;
+        }
+
+        public async Task SoftDelete(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            product.IsDeleted = true;
+            await _context.SaveChangesAsync();
         }
 
         public async Task<int> Update(Product entity)

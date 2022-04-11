@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Web\\bootShop.Web.csproj": {}
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Web\\bootShop.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Business\\bootShop.Business.csproj": {
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Business\\bootShop.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Business\\bootShop.Business.csproj",
+        "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Business\\bootShop.Business.csproj",
         "projectName": "bootShop.Business",
-        "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Business\\bootShop.Business.csproj",
+        "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Business\\bootShop.Business.csproj",
         "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Business\\obj\\",
+        "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj"
+              "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj"
               },
-              "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
-                "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj"
+              "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj"
               }
             }
           }
@@ -46,6 +46,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -65,14 +71,14 @@
         }
       }
     },
-    "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj": {
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
         "projectName": "bootShop.DataAccess",
-        "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
+        "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
         "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,8 +95,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
-                "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj"
+              "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\bootShop.Dtos.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\bootShop.Dtos.csproj"
+              },
+              "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj"
               }
             }
           }
@@ -143,14 +152,14 @@
         }
       }
     },
-    "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\bootShop.Dtos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj",
-        "projectName": "bootShop.Entities",
-        "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\bootShop.Dtos.csproj",
+        "projectName": "bootShop.Dtos",
+        "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\bootShop.Dtos.csproj",
         "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\obj\\",
+        "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -197,14 +206,68 @@
         }
       }
     },
-    "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Web\\bootShop.Web.csproj": {
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Web\\bootShop.Web.csproj",
-        "projectName": "bootShop.Web",
-        "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Web\\bootShop.Web.csproj",
+        "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj",
+        "projectName": "bootShop.Entities",
+        "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj",
         "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Web\\obj\\",
+        "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Web\\bootShop.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Web\\bootShop.Web.csproj",
+        "projectName": "bootShop.Web",
+        "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Web\\bootShop.Web.csproj",
+        "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -221,8 +284,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Business\\bootShop.Business.csproj": {
-                "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Business\\bootShop.Business.csproj"
+              "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Business\\bootShop.Business.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Business\\bootShop.Business.csproj"
               }
             }
           }
@@ -246,6 +309,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [

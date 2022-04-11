@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootShop.Web", "bootShop.Web\bootShop.Web.csproj", "{A4D7E508-94CC-4A48-A5C9-075B87FD1831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bootShop.Web", "bootShop.Web\bootShop.Web.csproj", "{A4D7E508-94CC-4A48-A5C9-075B87FD1831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootShop.Entities", "bootShop.Entities\bootShop.Entities.csproj", "{594C6377-35F0-4C11-892A-D3896D8B77D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bootShop.Entities", "bootShop.Entities\bootShop.Entities.csproj", "{594C6377-35F0-4C11-892A-D3896D8B77D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootShop.Business", "bootShop.Business\bootShop.Business.csproj", "{43FC4314-B8FA-4880-B3D4-381109B783C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bootShop.Business", "bootShop.Business\bootShop.Business.csproj", "{43FC4314-B8FA-4880-B3D4-381109B783C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootShop.DataAccess", "bootShop.DataAccess\bootShop.DataAccess.csproj", "{D525B9D7-C450-4093-809F-7BE18C6E2621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bootShop.DataAccess", "bootShop.DataAccess\bootShop.DataAccess.csproj", "{D525B9D7-C450-4093-809F-7BE18C6E2621}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootShop.Dtos", "bootShop.Dtos\bootShop.Dtos.csproj", "{C6260BEC-A6E1-44CD-8826-CBE1C88298EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D525B9D7-C450-4093-809F-7BE18C6E2621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D525B9D7-C450-4093-809F-7BE18C6E2621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D525B9D7-C450-4093-809F-7BE18C6E2621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6260BEC-A6E1-44CD-8826-CBE1C88298EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6260BEC-A6E1-44CD-8826-CBE1C88298EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6260BEC-A6E1-44CD-8826-CBE1C88298EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6260BEC-A6E1-44CD-8826-CBE1C88298EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

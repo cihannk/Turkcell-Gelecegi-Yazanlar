@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Rin8nAEWRkt94tcKm6QiEg3suYj+8uFWo/CW2fuEb1eNpMIujB9byPZKVDkpHHWn/TXCgiB+oRyqXzYjcOpc6A==",
+  "dgSpecHash": "LHGG1ClNjufa1SKHf4l8xNw7Gml6CvtLVR3KQ3kIwF52h4XVZAjlvUjAk4dDtMh9wdzY6DqA1dwRXgvcC6zQmA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrspy\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\mrspy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

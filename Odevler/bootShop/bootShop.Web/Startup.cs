@@ -1,9 +1,11 @@
 using bootShop.Business;
+using bootShop.Business.MapperProfile;
 using bootShop.DataAccess;
 using bootShop.DataAccess.Data;
 using bootShop.DataAccess.Repositories;
 using bootShop.DataAccess.Repositories.Abstract;
 using bootShop.DataAccess.Repositories.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,16 +34,23 @@ namespace bootShop.Web
         {
             services.AddControllersWithViews();
             
-            services.AddScoped<IProductRepository, DapperProductRepository>();
-            services.AddScoped<ICategoryRepository, DapperCategoryRepository>();
+            services.AddScoped<IProductRepository, EFProductRepository>();
+            services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
 
 
             var connectionString = Configuration.GetConnectionString("db");
-            //services.AddDbContext<bootShopDbContext>(opt => opt.UseSqlServer(connectionString));
-            services.AddSingleton<DapperDbContext>();
+            services.AddDbContext<bootShopDbContext>(opt => opt.UseSqlServer(connectionString));
+            //services.AddSingleton<DapperDbContext>();
+            services.AddAutoMapper(typeof(MapProfile));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
+            {
+                opt.LoginPath = "/Users/Login";
+                opt.AccessDeniedPath = "/Users/AccessDenied";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

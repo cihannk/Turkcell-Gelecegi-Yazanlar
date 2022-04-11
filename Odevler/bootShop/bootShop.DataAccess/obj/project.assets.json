@@ -1529,6 +1529,16 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "bootShop.Dtos/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/bootShop.Dtos.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/bootShop.Dtos.dll": {}
+        }
+      },
       "bootShop.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5825,6 +5835,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "bootShop.Dtos/1.0.0": {
+      "type": "project",
+      "path": "../bootShop.Dtos/bootShop.Dtos.csproj",
+      "msbuildProject": "../bootShop.Dtos/bootShop.Dtos.csproj"
+    },
     "bootShop.Entities/1.0.0": {
       "type": "project",
       "path": "../bootShop.Entities/bootShop.Entities.csproj",
@@ -5837,6 +5852,7 @@
       "Microsoft.EntityFrameworkCore >= 5.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.15",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.15",
+      "bootShop.Dtos >= 1.0.0",
       "bootShop.Entities >= 1.0.0"
     ]
   },
@@ -5846,11 +5862,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
       "projectName": "bootShop.DataAccess",
-      "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
+      "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\bootShop.DataAccess.csproj",
       "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5867,8 +5883,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
-              "projectPath": "C:\\Users\\mrspy\\Desktop\\pratikler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj"
+            "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\bootShop.Dtos.csproj": {
+              "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Dtos\\bootShop.Dtos.csproj"
+            },
+            "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj": {
+              "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\bootShop\\bootShop.Entities\\bootShop.Entities.csproj"
             }
           }
         }

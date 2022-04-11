@@ -41,7 +41,17 @@ namespace bootShop.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<bool> IsExist(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<Product>> SearchProductsByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SoftDelete(int id)
         {
             throw new NotImplementedException();
         }

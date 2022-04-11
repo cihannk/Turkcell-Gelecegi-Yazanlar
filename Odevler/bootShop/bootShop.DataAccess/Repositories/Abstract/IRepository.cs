@@ -14,5 +14,6 @@ namespace bootShop.DataAccess.Repositories
         Task<int> Add(T entity);
         Task<int> Update(T entity);
         Task Delete(int id);
+        Task<bool> IsExist(int id);
     }
 }
