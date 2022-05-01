@@ -1,0 +1,19 @@
+﻿@model GetProductsResponse
+
+
+<div class="card product-card">
+    <img src=@Model.ImageUrl class="card-img-top" alt=@Model.Name>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        @if (Model.Discount != 0)
+        {
+            <p class="card-text">@Model.Price TL Yerine @((Model.Price) * (1 - Model.Discount)) TL</p>
+        }
+        else
+        {
+            <p class="card-text">@Model.Price TL</p>
+            
+        }
+        <a href="#" class="btn btn-primary sepet" data-id="@Model.Id">Sepete Ekle</a>
+    </div>
+</div>

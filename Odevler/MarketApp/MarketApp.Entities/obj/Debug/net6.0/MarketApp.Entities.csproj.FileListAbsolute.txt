@@ -1,0 +1,12 @@
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\bin\Debug\net6.0\MarketApp.Entities.deps.json
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\bin\Debug\net6.0\MarketApp.Entities.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\bin\Debug\net6.0\MarketApp.Entities.pdb
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\MarketApp.Entities.csproj.AssemblyReference.cache
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\MarketApp.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\MarketApp.Entities.AssemblyInfoInputs.cache
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\MarketApp.Entities.AssemblyInfo.cs
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\MarketApp.Entities.csproj.CoreCompileInputs.cache
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\MarketApp.Entities.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\refint\MarketApp.Entities.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\MarketApp.Entities.pdb
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Entities\obj\Debug\net6.0\ref\MarketApp.Entities.dll

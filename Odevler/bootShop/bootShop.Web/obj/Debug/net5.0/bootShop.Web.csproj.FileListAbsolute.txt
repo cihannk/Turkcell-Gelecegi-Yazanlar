@@ -248,3 +248,6 @@ C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\bootShop\boot
 C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\bootShop\bootShop.Web\obj\Debug\net5.0\Razor\Views\Products\Delete.cshtml.g.cs
 C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\bootShop\bootShop.Web\obj\Debug\net5.0\Razor\Views\Users\Index.cshtml.g.cs
 C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\bootShop\bootShop.Web\obj\Debug\net5.0\Razor\Views\Users\Login.cshtml.g.cs
+C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\bootShop\bootShop.Web\obj\Debug\net5.0\Razor\Views\Users\AccessDenied.cshtml.g.cs
+C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\bootShop\bootShop.Web\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\bootShop\bootShop.Web\obj\Debug\net5.0\Razor\Views\Shared\Components\Cart\Default.cshtml.g.cs

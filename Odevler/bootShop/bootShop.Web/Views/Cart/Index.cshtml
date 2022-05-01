@@ -1,0 +1,26 @@
+﻿@model CartCollection
+
+<h1>Sepetim</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ad</th>
+      <th scope="col">Fiyat</th>
+      <th scope="col">Adet</th>
+      <th scope="col">Ara Toplam</th>
+    </tr>
+  </thead>
+    <tbody>
+        @foreach (var cartItem in Model.CartItems)
+        {
+            <tr>
+                <th scope="row">@cartItem.Product.Name</th>
+                <td>@(cartItem.Product.Price * (1- cartItem.Product.Discount))</td>
+                <td>@cartItem.Quantity</td>
+                <td>@(cartItem.Quantity * cartItem.Product.Price * (1- cartItem.Product.Discount))</td>
+            </tr>
+        }
+    </tbody>  
+
+</table>
+<span>Toplam @Model.GetTotalPrice() TL</span>

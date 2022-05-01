@@ -1,0 +1,342 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Web\\MarketApp.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
+        "projectName": "MarketApp.Business",
+        "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
+        "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj"
+              },
+              "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj",
+        "projectName": "MarketApp.DataAccess",
+        "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj",
+        "projectName": "MarketApp.Dtos",
+        "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj",
+        "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj",
+        "projectName": "MarketApp.Entities",
+        "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj",
+        "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Web\\MarketApp.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Web\\MarketApp.Web.csproj",
+        "projectName": "MarketApp.Web",
+        "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Web\\MarketApp.Web.csproj",
+        "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bulma@0.9.3",
+      "destination": "wwwroot/lib/bulma/"
+    },
+    {
+      "library": "bootstrap@5.1.3",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [
+        "js/bootstrap.min.js",
+        "css/bootstrap.min.css",
+        "js/bootstrap.bundle.js"
+      ]
+    },
+    {
+      "library": "tailwindcss@2.2.19",
+      "destination": "wwwroot/lib/tailwindcss/"
+    },
+    {
+      "library": "mdbootstrap@4.20.0",
+      "destination": "wwwroot/lib/mdbootstrap/"
+    },
+    {
+      "library": "alertify.js@0.3.11",
+      "destination": "wwwroot/lib/alertify.js/"
+    },
+    {
+      "library": "AlertifyJS@1.13.1",
+      "destination": "wwwroot/lib/AlertifyJS/",
+      "files": [
+        "alertify.min.js",
+        "css/alertify.min.css"
+      ]
+    }
+  ]
+}

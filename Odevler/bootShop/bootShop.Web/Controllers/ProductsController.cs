@@ -9,8 +9,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace bootShop.Web.Controllers
-{
-    [Authorize]
+{ 
+    [Authorize(Roles = "admin,editor")]
     public class ProductsController : Controller
     {
         private readonly IProductService _productService;
@@ -21,6 +21,7 @@ namespace bootShop.Web.Controllers
             _productService = productService;
             _categoryService = categoryService;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var products = await _productService.GetProducts();

@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<GetProductsResponse>
+
+<div aria-label="Products" class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-3">
+            <partial name="_ProductCard" model=@product />
+        </div>
+    }
+</div>
+
+<nav class="pagination-nav" aria-label="Page navigation">
+    <ul class="pagination">
+        @if (ViewBag.Page > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-page="@(ViewBag.Page-1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+
+        @for(int i = 1; i<=ViewBag.PageCount; i++)
+        {
+            <li class="page-item @(i == ViewBag.Page ? "active": "") ">
+                <a class="page-link" asp-action="Index" asp-route-page=@i>@i</a>
+            </li>
+        }
+
+        @if (ViewBag.Page < ViewBag.PageCount)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-page="@(ViewBag.Page+1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.sepet').on('click', function (){
+                let id = $(this).data('id');
+                $.ajax({
+                    url: 'Cart/Add/' + id,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log('cartcontroller: ', data);
+                        alertify.success("Ürün sepete eklendi");
+                    },
+                    complete: function (){
+                        $('.cart-div').load("/Cart/GetCartVM");
+                    }
+                });
+            })
+        });
+    </script>
+}

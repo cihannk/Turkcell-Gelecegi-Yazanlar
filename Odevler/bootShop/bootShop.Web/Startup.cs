@@ -39,12 +39,14 @@ namespace bootShop.Web
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IUserService, FakeUserService>();
 
 
             var connectionString = Configuration.GetConnectionString("db");
             services.AddDbContext<bootShopDbContext>(opt => opt.UseSqlServer(connectionString));
             //services.AddSingleton<DapperDbContext>();
             services.AddAutoMapper(typeof(MapProfile));
+            services.AddSession();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
             {
@@ -70,7 +72,9 @@ namespace bootShop.Web
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

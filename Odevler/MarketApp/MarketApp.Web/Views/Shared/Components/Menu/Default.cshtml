@@ -1,0 +1,11 @@
+﻿@model IEnumerable<GetCategoriesResponse>
+
+<div class="list-group">
+    @foreach( var item in Model)
+    {
+        if (item.IsActive)
+        {
+            <a asp-route-categoryName="@item.Name" asp-controller="Home" asp-action="Index" class="list-group-item">@item.Name</a>
+        }
+    }
+</div>

@@ -1,0 +1,15 @@
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\bin\Debug\net6.0\MarketApp.Dtos.deps.json
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\bin\Debug\net6.0\MarketApp.Dtos.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\bin\Debug\net6.0\MarketApp.Dtos.pdb
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.csproj.AssemblyReference.cache
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.AssemblyInfoInputs.cache
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.AssemblyInfo.cs
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.csproj.CoreCompileInputs.cache
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\refint\MarketApp.Dtos.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.pdb
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\ref\MarketApp.Dtos.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\bin\Debug\net6.0\MarketApp.Entities.dll
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\bin\Debug\net6.0\MarketApp.Entities.pdb
+C:\Users\mrspy\Desktop\projeler\MarketApp\MarketApp.Dtos\obj\Debug\net6.0\MarketApp.Dtos.csproj.CopyComplete
