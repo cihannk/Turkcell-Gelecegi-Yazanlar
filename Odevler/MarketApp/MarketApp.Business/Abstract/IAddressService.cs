@@ -1,4 +1,6 @@
-﻿using MarketApp.Entities;
+﻿using MarketApp.Dtos.Request;
+using MarketApp.Dtos.Response;
+using MarketApp.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,7 @@ namespace MarketApp.Business.Abstract
 {
     public interface IAddressService
     {
+        Task<int> AddAddress(AddAddressRequest address);
+        Task<IList<GetAddressResponse>> GetUserAddressesWithUserId(int userId);
     }
 }

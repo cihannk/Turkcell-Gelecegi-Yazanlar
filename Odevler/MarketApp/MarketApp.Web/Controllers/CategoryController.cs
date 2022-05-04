@@ -18,7 +18,7 @@ namespace MarketApp.Web.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Add()
+        public IActionResult Add()
         {
             return View();
         }

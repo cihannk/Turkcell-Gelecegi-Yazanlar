@@ -33,15 +33,7 @@ namespace MarketApp.Business.Concrete
                 // for creation of cartItems
                 for(int i = 0; i<order.CartItems.Count; i++)
                 {
-                    var existCartItem = await _cartItemRepository.GetExistCartItem(order.CartItems[i].ProductId, order.CartItems[i].Amount);
-                    if (existCartItem != null)
-                    {
-                        order.CartItems[i] = existCartItem;
-                    }
-                    else
-                    {
-                        await _cartItemRepository.Add(order.CartItems[i]);
-                    }
+                    order.CartItems[i] = await CreateCartItem(order.CartItems[i].ProductId, order.CartItems[i].Amount);
                 }
                 await _orderRepository.Add(order);
             }
@@ -49,6 +41,17 @@ namespace MarketApp.Business.Concrete
             {
                 throw new Exception("Order couldn't proceed");
             }
+        }
+
+        public async Task<CartItem> CreateCartItem(int productId, int amount)
+        {
+            var cartItem = await _cartItemRepository.GetExistCartItem(productId, amount);
+            if (cartItem == null)
+            {
+                cartItem = new CartItem { ProductId = productId, Amount = amount };
+                await _cartItemRepository.Add(cartItem);
+            }
+            return cartItem;
         }
 
         public async Task<IList<Order>> GetAllOrders()

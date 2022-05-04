@@ -1,0 +1,25 @@
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<MarketApp.Web.Data.StripeSettings> Stripe
+
+<form asp-action="Processing" asp-controller="Cart" method="post">
+    <article>
+        <label>Toplam Tutar: @ViewBag.DollarAmount TL</label>
+    </article>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="@Stripe.Value.PublishableKey"
+            data-amount="@ViewBag.Total"
+            data-name="MarketApp"
+            data-description="MarketApp payments"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="tr"
+            data-currency="try"
+            data-zip-code="false"
+            data-email="@ViewBag.Email">
+    </script>
+     <script>
+        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+    </script>
+    <button type="submit" id="pay" class="btn btn-primary">Kartla öde</button>
+</form>
+
+

@@ -23,10 +23,17 @@
                     <ul class="navbar-nav flex-grow-1">
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  @User.Identity.Name  </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="Orders"> Siparişler</a></li>
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="Detail"> Adresler </a></li>
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="Detail"> Bilgiler </a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Logout">
-                                    <span class="user-text">@User.Identity.Name</span>
-                                    Çıkış Yap
+                                    <span>Çıkış Yap</span>
                                  </a>
                             </li>
                         }

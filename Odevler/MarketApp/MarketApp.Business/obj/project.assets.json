@@ -1941,11 +1941,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
+      "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
       "projectName": "MarketApp.Business",
-      "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
+      "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
       "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\obj\\",
+      "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1962,11 +1962,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj"
+            "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj"
             },
-            "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {
-              "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj"
+            "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {
+              "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj"
             }
           }
         }

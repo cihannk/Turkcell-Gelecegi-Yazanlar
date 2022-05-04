@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {}
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj",
+        "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj",
         "projectName": "MarketApp.Dtos",
-        "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj",
+        "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Dtos\\MarketApp.Dtos.csproj",
         "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Dtos\\obj\\",
+        "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Dtos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj": {
-                "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj"
+              "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj": {
+                "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj"
               }
             }
           }
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj": {
+    "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj",
         "projectName": "MarketApp.Entities",
-        "projectPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj",
+        "projectPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Entities\\MarketApp.Entities.csproj",
         "packagesPath": "C:\\Users\\mrspy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Entities\\obj\\",
+        "outputPath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mrspy\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -35,6 +35,11 @@ namespace MarketApp.DataAccess.Repositories
             return await _context.Addresses.ToListAsync();
         }
 
+        public async Task<IList<Address>> GetAllEntitiesByUserId(int userId)
+        {
+            return await _context.Addresses.Where(x => x.UserId == userId).ToListAsync();
+        }
+
         public async Task<Address> GetEntityById(int id)
         {
             return await _context.Addresses.FindAsync(id);

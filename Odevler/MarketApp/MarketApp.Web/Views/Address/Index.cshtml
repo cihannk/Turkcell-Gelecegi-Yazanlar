@@ -1,0 +1,41 @@
+﻿@model IList<GetAddressResponse>
+
+<h3>Adreslerim</h3>
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    @for (int i = 0; i < @Model.Count; i++)
+    {
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading@(i)">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse@(i)" aria-expanded="false" aria-controls="flush-collapse@(i)">
+                    @Model[i].DesiredName
+                </button>
+            </h2>
+            <div id="flush-collapse@(i)" class="accordion-collapse collapse" aria-labelledby="flush-heading@(i)" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <b>Şehir:</b> @(Model[i].City)
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <b>İlçe:</b> @(Model[i].District)
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <b>Mahalle:</b> @(Model[i].Street)
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <b>Adres Detayı:</b> @(Model[i].AddressDetail)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

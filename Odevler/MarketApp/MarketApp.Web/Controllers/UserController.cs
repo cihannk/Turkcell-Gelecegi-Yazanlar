@@ -34,6 +34,7 @@ namespace MarketApp.Web.Controllers
                 {
                     var user = await _userService.Login(model);
                     List<Claim> claims = new List<Claim> {
+                        new Claim(type: "id", value: user.Id.ToString()),
                         new Claim(ClaimTypes.Email, user.Email),
                         new Claim(ClaimTypes.Name, user.Username),
                         new Claim(ClaimTypes.Role, user.Role.Name),
@@ -65,6 +66,7 @@ namespace MarketApp.Web.Controllers
                 {
                     var user = await _userService.Register(model);
                     List<Claim> claims = new List<Claim> {
+                        new Claim(type: "id", value: user.Id.ToString()),
                         new Claim(ClaimTypes.Email, user.Email),
                         new Claim(ClaimTypes.Name, user.Username),
                         new Claim(ClaimTypes.Role, user.Role.Name),

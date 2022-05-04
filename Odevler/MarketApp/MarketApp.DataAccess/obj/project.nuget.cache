@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k9E8CJPIyhDiFtYQE0fCHOD/sovYc2PqPM3NXOtCZBEtWY+G1+hovCEm5R8WE+BBHZaZmKon5om+gx1d5kUSNA==",
+  "dgSpecHash": "egPl3gaQaBM0ReMFVUxt2AWIyg4ysl91WY7mP2JlQjGl/UyAhyk/FPgVvRq0FgQ4ly2ONERBIdswTe3OMbUMQA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.DataAccess\\MarketApp.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrspy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mrspy\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

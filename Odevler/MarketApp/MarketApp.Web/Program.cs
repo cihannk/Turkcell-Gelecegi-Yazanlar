@@ -3,9 +3,11 @@ using MarketApp.Business.Concrete;
 using MarketApp.Business.MapperProfile;
 using MarketApp.DataAccess.Contexts;
 using MarketApp.DataAccess.Repositories;
+using MarketApp.Web.Data;
 using MarketApp.Web.Middlewares;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<EfDbContext>(optionsBuilder => optionsBuilder.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
-builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductService, MarketApp.Business.Concrete.ProductService>();
 
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
@@ -24,6 +26,13 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, EFUserRepository>();
 builder.Services.AddScoped<IHashingService, HashingService>();
+
+builder.Services.AddScoped<IOrderService, MarketApp.Business.Concrete.OrderService>();
+builder.Services.AddScoped<IUserRepository, EFUserRepository>();
+builder.Services.AddScoped<IAddressService, AddressService>();
+builder.Services.AddScoped<IAddressRepository, EFAddressRepository>();
+builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+builder.Services.AddScoped<ICartItemRepository, EFCartItemRepository>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddSession();
@@ -34,6 +43,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.AccessDeniedPath = "/Users/AccessDenied";
 });
 
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe").GetValue<string>("SecretKey");
 
 
 var app = builder.Build();

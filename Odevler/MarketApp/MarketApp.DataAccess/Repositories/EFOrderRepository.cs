@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MarketApp.DataAccess.Repositories
 {
-    internal class EFOrderRepository : IOrderRepository
+    public class EFOrderRepository : IOrderRepository
     {
         private readonly EfDbContext _context;
 

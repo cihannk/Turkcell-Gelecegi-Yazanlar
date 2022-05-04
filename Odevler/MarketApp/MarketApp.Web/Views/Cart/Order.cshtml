@@ -1,0 +1,22 @@
+﻿<h4>Adreslerim</h4>
+
+@if (ViewBag.Addresses.Count <=0)
+{
+    <span>Henüz adresin yok...</span>
+    <a asp-action="Add" asp-controller="Address" class="btn btn-primary">Adres ekle</a>
+}
+else
+{
+    <form asp-action="Checkout">
+        <select name="addressId" class="form-select" aria-label="Adres seçimi">
+        @foreach (var address in ViewBag.Addresses)
+        {
+            <option value="@address.Id">@address.DesiredName</option>
+        }
+    </select>
+    <a asp-action="Add" asp-controller="Address" class="btn btn-primary">Adres ekle</a>
+    <button class="btn btn-primary" type="submit">Devam et</button>
+    </form>
+    
+}
+<hr/>

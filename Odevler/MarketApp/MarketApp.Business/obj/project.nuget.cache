@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I7fX2AnUyCfzDNR7F3Olj/ijUOtG9MH4Fl16vQ/XlsrJCggZc7+B6MXHAT57SPEuHQkFkFOwI95vfp6GFF1laA==",
+  "dgSpecHash": "mI6nF4RmHtjZPA+UWYEpCX+l4LFkQA1wqbldrqWnIJoq+Ry1Eo0e++UBb9PUAnqmYynttatcKq7LAug4YwOzSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mrspy\\Desktop\\projeler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
+  "projectFilePath": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Business\\MarketApp.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrspy\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\mrspy\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

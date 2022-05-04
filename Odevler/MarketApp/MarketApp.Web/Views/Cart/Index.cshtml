@@ -45,7 +45,13 @@
 
         </tbody>
     </table>
-    <span>Toplam: @Model.GetTotal() TL</span>
+    @if(Model.CartItems.Count > 0 && ViewBag.IsAuthenticated)
+    {
+        <div class="column">
+            <span>Toplam: @Model.GetTotal() TL</span>
+            <a asp-action="Order" type="button" class="btn btn-outline-success btn-sm">Sepeti Onayla</a>
+        </div>  
+    }
 </div>
 
 @section Scripts{
