@@ -37,7 +37,7 @@ namespace MarketApp.DataAccess.Repositories
 
         public async Task<IList<Order>> GetEntitesByUserId(int userId)
         {
-            return _context.Orders.Where(x => x.UserId == userId).ToList();
+            return _context.Orders.Include(x => x.CartItems).ThenInclude(x => x.Product).Where(x => x.UserId == userId).ToList();
         }
 
         public async Task<Order> GetEntityById(int id)

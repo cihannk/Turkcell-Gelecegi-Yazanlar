@@ -7,7 +7,7 @@
         <h5 class="card-title">@Model.Name</h5>
         @if (Model.Discount != 0)
         {
-            <p class="card-text">@Model.Price TL Yerine @((Model.Price) * (1 - Model.Discount)) TL</p>
+            <p class="card-text">@(Math.Round(Model.Price, 2)) TL Yerine @(Math.Round((Model.Price) * (1 - Model.Discount), 2)) TL</p>
         }
         else
         {

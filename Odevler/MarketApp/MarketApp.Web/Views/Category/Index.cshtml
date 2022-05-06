@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MarketApp.Dtos.Response.GetCategoriesResponse>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kategoriler</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { categoryId= @item.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Update", new { categoryId= @item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+    <a class="btn btn-primary btn-sm" asp-action="Add">Add New Category</a>
+</table>

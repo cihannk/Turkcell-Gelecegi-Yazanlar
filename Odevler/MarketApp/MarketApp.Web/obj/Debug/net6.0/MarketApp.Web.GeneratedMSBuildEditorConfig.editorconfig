@@ -15,14 +15,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mrspy\Documents\GitHub\Turkcell-Gelecegi-Yazanlar\Odevler\MarketApp\MarketApp.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Address/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc1xBZGQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Address/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkcmVzc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Cart/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,6 +37,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Category/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Category/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Home/Index.cshtml]
@@ -87,6 +87,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Shared/_LayoutLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/Shared/_ProductCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0Q2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -99,8 +103,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/User/AddAddress.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRBZGRyZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/User/Addresses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRyZXNzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/User/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/User/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/User/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxPcmRlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mrspy/Documents/GitHub/Turkcell-Gelecegi-Yazanlar/Odevler/MarketApp/MarketApp.Web/Views/User/Register.cshtml]

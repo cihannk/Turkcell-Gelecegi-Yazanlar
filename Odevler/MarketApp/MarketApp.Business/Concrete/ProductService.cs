@@ -119,7 +119,12 @@ namespace MarketApp.Business.Concrete
             {
                 throw new InvalidOperationException("Product cannot be updated because is not exist");
             }
+            var dbEntity = await _productRepository.GetEntityById(product.Id);
             var entity = _mapper.Map<Product>(product);
+
+            entity.CreatedDate = dbEntity.CreatedDate;
+            entity.ModifiedDate = DateTime.Now;
+
             return await _productRepository.Update(entity);
         }
     }

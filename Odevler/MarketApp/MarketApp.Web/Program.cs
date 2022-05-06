@@ -40,7 +40,7 @@ builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
 {
     opt.LoginPath = "/User/Login";
-    opt.AccessDeniedPath = "/Users/AccessDenied";
+    opt.AccessDeniedPath = "/User/AccessDenied";
 });
 
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));

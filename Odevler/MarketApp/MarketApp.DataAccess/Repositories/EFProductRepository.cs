@@ -44,7 +44,7 @@ namespace MarketApp.DataAccess.Repositories
 
         public async Task<Product> GetEntityById(int id)
         {
-            var product = await _context.Products.Include(p => p.Category).FirstOrDefaultAsync(x => x.Id == id);
+            var product = await _context.Products.AsNoTracking().Include(p => p.Category).FirstOrDefaultAsync(x => x.Id == id);
             return product;
         }
 
@@ -55,7 +55,6 @@ namespace MarketApp.DataAccess.Repositories
 
         public async Task<int> Update(Product entity)
         {
-            entity.ModifiedDate = DateTime.Now;
             _context.Products.Update(entity);
             return await _context.SaveChangesAsync();
         }

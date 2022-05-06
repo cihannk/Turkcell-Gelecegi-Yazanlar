@@ -20,7 +20,6 @@ namespace MarketApp.Web.Controllers
             _productService = productService;
             _categoryService = categoryService;
         }
-        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var products = await _productService.GetProductsWithoutCheckingActive();

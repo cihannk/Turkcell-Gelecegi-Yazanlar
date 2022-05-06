@@ -1,0 +1,53 @@
+﻿@model IList<MarketApp.Entities.Order>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h3>Siparişler</h3>
+<hr />
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    @if (Model.Count > 0)
+    {
+        @for (int i = 0; i < @Model.Count; i++)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading@(i)">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse@(i)" aria-expanded="false" aria-controls="flush-collapse@(i)">
+                        Sipariş @(i+1)
+                    </button>
+                </h2>
+                <div id="flush-collapse@(i)" class="accordion-collapse collapse" aria-labelledby="flush-heading@(i)" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        @foreach (var cartitem in Model[i].CartItems)
+                        {
+                            <div class="card">
+                                <div class="card-body">
+                                    <img class="card-image" src="@cartitem.Product.ImageUrl" alt="@cartitem.Product.Name" />
+                                    <span class="card-title">Ürün ismi: </span> @cartitem.Product.Name
+                                    <span class="card-title">Fiyat: </span> @(cartitem.PastPrice) TL
+                                    <span class="card-title">Adet: </span> @cartitem.Amount
+                                </div>
+                            </div>
+
+                        }
+
+                        @{
+                            double orderTotal = Model[i].CartItems.Sum(cartitem => cartitem.Amount * cartitem.PastPrice);
+                        }
+                        <div>
+                            <span class="card-title">Sipariş tarihi: </span>
+                            <span>@Model[i].OrderDate.ToString("dd MMM yyyy")</span>
+                            <span class="card-title">Toplam: </span>
+                            <span>@(orderTotal) TL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <span class="gray-empty">Sipariş Yok...</span>
+    }
+

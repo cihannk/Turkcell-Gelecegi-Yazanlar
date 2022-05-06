@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DCLNeDf8lCOW2cb00fZALknQZxYCbZAqflXxOxnBZmc=",
+  "Hash": "wh/4lln5F2yzom8DCL+y2LX3mD0BMOAJYL1rdohivPs=",
   "Source": "MarketApp.Web",
   "BasePath": "_content/MarketApp.Web",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MarketApp.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Web\\wwwroot\\css\\login.css",
+      "SourceId": "MarketApp.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Web\\wwwroot\\",
+      "BasePath": "_content/MarketApp.Web",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\mrspy\\Documents\\GitHub\\Turkcell-Gelecegi-Yazanlar\\Odevler\\MarketApp\\MarketApp.Web\\wwwroot\\css\\site.css",

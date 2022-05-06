@@ -1,39 +1,39 @@
-﻿@model MarketApp.Dtos.Models.UserRegisterModel
+﻿@model MarketApp.Dtos.Response.GetUserResponse
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Info";
 }
 
-<h1>Register</h1>
 
+<h3>Kullanıcı Bilgileri</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Register">
+        <form asp-action="Info">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <div class="form-unchange-block">
+                    <span class="card-title">Email</span>
+                    <span>@Model.Email</span>
+                </div>
             </div>
             <div class="form-group">
+                <input hidden name="Id" value="@Model.Id"/>
+                <input hidden name="Email" value="@Model.Email"/>
+                <input hidden name="RegisterDate" value="@Model.RegisterDate"/>
+
                 <label asp-for="Username" class="control-label"></label>
                 <input asp-for="Username" class="form-control" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Kayıt Ol" class="btn btn-primary" />
+                <input type="submit" value="Bilgileri güncelle" class="btn btn-primary" />
             </div>
             <div class="error-summary" asp-validation-summary="All"></div>
         </form>
+        <a asp-action="ChangePassword">Şifreyi değiştir</a>
     </div>
 </div>
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

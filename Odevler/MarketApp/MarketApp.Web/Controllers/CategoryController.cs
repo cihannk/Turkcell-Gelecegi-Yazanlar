@@ -14,9 +14,10 @@ namespace MarketApp.Web.Controllers
         {
             _categoryService = categoryService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var categories = await _categoryService.GetCategories();
+            return View(categories);
         }
         public IActionResult Add()
         {
@@ -29,6 +30,26 @@ namespace MarketApp.Web.Controllers
             {
                 var result = await _categoryService.AddCategory(category);
                 return Redirect("/");
+            }
+            return View();
+        }
+        public async Task<IActionResult> Delete(int categoryId)
+        {
+            await _categoryService.RemoveCategory(categoryId);
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Update(int categoryId)
+        {
+            var category = await _categoryService.GetCategory(categoryId);
+            return View(category);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(UpdateCategoryRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                await _categoryService.UpdateCategory(request);
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }

@@ -15,13 +15,15 @@ namespace MarketApp.Business.Concrete
         private readonly IAddressRepository _addressRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly ICartItemRepository _cartItemRepository;
+        private readonly IProductRepository _productRepository;
 
-        public OrderService(IUserRepository userRepository,IAddressRepository addressRepository, IOrderRepository orderRepository, ICartItemRepository cartItemRepository )
+        public OrderService(IUserRepository userRepository,IAddressRepository addressRepository, IOrderRepository orderRepository, ICartItemRepository cartItemRepository, IProductRepository productRepository )
         {
             _userRepository = userRepository;
             _addressRepository = addressRepository;
             _orderRepository = orderRepository;
             _cartItemRepository = cartItemRepository;
+            _productRepository = productRepository;
         }
         public async Task BeginOrder(Order order)
         {
@@ -33,7 +35,7 @@ namespace MarketApp.Business.Concrete
                 // for creation of cartItems
                 for(int i = 0; i<order.CartItems.Count; i++)
                 {
-                    order.CartItems[i] = await CreateCartItem(order.CartItems[i].ProductId, order.CartItems[i].Amount);
+                    order.CartItems[i] = await CreateCartItem(order.CartItems[i].ProductId, order.CartItems[i].Amount, order.CartItems[i].PastPrice);
                 }
                 await _orderRepository.Add(order);
             }
@@ -43,14 +45,15 @@ namespace MarketApp.Business.Concrete
             }
         }
 
-        public async Task<CartItem> CreateCartItem(int productId, int amount)
+        public async Task<CartItem> CreateCartItem(int productId, int amount, double pastPrice)
         {
-            var cartItem = await _cartItemRepository.GetExistCartItem(productId, amount);
-            if (cartItem == null)
-            {
-                cartItem = new CartItem { ProductId = productId, Amount = amount };
+                var product = await _productRepository.GetEntityById(productId);
+                var cartItem = new CartItem {
+                    ProductId = productId,
+                    Amount = amount,
+                    PastPrice= pastPrice
+                };
                 await _cartItemRepository.Add(cartItem);
-            }
             return cartItem;
         }
 

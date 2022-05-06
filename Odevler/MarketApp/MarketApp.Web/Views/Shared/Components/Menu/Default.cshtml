@@ -5,7 +5,12 @@
     {
         if (item.IsActive)
         {
-            <a asp-route-categoryName="@item.Name" asp-controller="Home" asp-action="Index" class="list-group-item">@item.Name</a>
+            <a asp-route-categoryName="@item.Name" asp-controller="Home" asp-action="Index" class="list-group-item">
+                <div class="category-card">
+                    <img class="category-image" src="@item.ImageUrl" alt="@item.Name"/>
+                    <span>@item.Name</span>
+                </div>
+            </a>
         }
     }
 </div>

@@ -12,6 +12,6 @@ namespace MarketApp.Business.Abstract
         Task BeginOrder(Order order);
         Task<IList<Order>> GetAllOrders();
         Task<IList<Order>> GetOrdersByUserId(int id);
-        Task<CartItem> CreateCartItem(int productId, int amount);
+        Task<CartItem> CreateCartItem(int productId, int amount, double pastPrice);
     }
 }

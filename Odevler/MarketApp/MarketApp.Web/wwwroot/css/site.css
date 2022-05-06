@@ -10,7 +10,7 @@ html {
 
 html {
   position: relative;
-  min-height: 100%;
+  /*min-height: 100%;*/
 }
 
 body {
@@ -20,11 +20,20 @@ body {
     font-size: 1em;
     font-weight: 600;
 }
+
 /*.card-img-top{
     width: 75%;
     height: 75%;
 
 }*/
+.card-image {
+    width: 2em;
+    height: 2em;
+}
+.category-image{
+    width: 1.5em;
+    height: 1.5em;
+}
 .pagination-nav{
     margin-top: 1em;
 
@@ -42,6 +51,9 @@ body {
 .cart-icon{
     color: darkblue;
 }
+.cart{
+    margin-top: 2px;
+}
 .user-text{
     font-weight: 600;
 
@@ -58,6 +70,16 @@ body {
 .column{
     display: flex;
     flex-direction: column;
+}
+.form-unchange-block{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+.gray-empty{
+    font-size: 4em;
+    color: lightgray;
+    font-weight: 400;
 }
 
 @media all and (min-width: 992px) {

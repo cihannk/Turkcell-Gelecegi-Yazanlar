@@ -43,7 +43,7 @@ namespace MarketApp.DataAccess.Repositories
 
         public async Task<User> GetEntityById(int id)
         {
-            return await _context.Users.Include(u => u.Role).FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Users.AsNoTracking().Include(u => u.Role).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<bool> IsEmailExist(string email)

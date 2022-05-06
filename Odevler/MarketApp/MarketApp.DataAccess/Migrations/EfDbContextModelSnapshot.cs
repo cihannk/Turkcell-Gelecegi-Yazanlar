@@ -34,7 +34,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasIndex("OrdersId");
 
-                    b.ToTable("CartItemOrder");
+                    b.ToTable("CartItemOrder", (string)null);
                 });
 
             modelBuilder.Entity("MarketApp.Entities.Address", b =>
@@ -72,7 +72,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Address");
+                    b.ToTable("Address", (string)null);
                 });
 
             modelBuilder.Entity("MarketApp.Entities.CartItem", b =>
@@ -93,7 +93,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartItem");
+                    b.ToTable("CartItem", (string)null);
                 });
 
             modelBuilder.Entity("MarketApp.Entities.Category", b =>
@@ -117,7 +117,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("MarketApp.Entities.Order", b =>
@@ -143,7 +143,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Order", (string)null);
                 });
 
             modelBuilder.Entity("MarketApp.Entities.Product", b =>
@@ -187,7 +187,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("MarketApp.Entities.Role", b =>
@@ -204,7 +204,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("MarketApp.Entities.User", b =>
@@ -241,7 +241,7 @@ namespace MarketApp.DataAccess.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("CartItemOrder", b =>

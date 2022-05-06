@@ -145,7 +145,7 @@ namespace MarketApp.Web.Controllers
         {
             List<Entities.CartItem> cartItems = new List<Entities.CartItem>();
             foreach(var collectionCartItem in collection.CartItems) {
-                var result = new Entities.CartItem { ProductId = collectionCartItem.Product.Id, Amount = collectionCartItem.Quantity };
+                var result = new Entities.CartItem { ProductId = collectionCartItem.Product.Id, Amount = collectionCartItem.Quantity, PastPrice= (collectionCartItem.Product.Price * (1 - collectionCartItem.Product.Discount))};
                 cartItems.Add(result);
             }
             return cartItems;

@@ -15,7 +15,7 @@ namespace MarketApp.Entities
         public string ImageUrl { get; set; }
         public double? Discount { get; set; }
         public bool IsActive { get; set; } = true;
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }

@@ -1,6 +1,7 @@
 ﻿@model IList<GetAddressResponse>
 
 <h3>Adreslerim</h3>
+<hr/>
 <div class="accordion accordion-flush" id="accordionFlushExample">
     @for (int i = 0; i < @Model.Count; i++)
     {
@@ -33,9 +34,11 @@
                             <b>Adres Detayı:</b> @(Model[i].AddressDetail)
                         </div>
                     </div>
+                    <a asp-action="DeleteAddress" asp-route-addressId="@(Model[i].Id)" class="btn btn-danger btn-sm">Sil</a>
+
                 </div>
             </div>
         </div>
-
     }
+    <a class="btn btn-primary" asp-action="AddAddress">Adres ekle</a>
 </div>

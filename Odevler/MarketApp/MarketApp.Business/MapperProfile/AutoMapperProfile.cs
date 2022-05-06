@@ -24,6 +24,8 @@ namespace MarketApp.Business.MapperProfile
             CreateMap<AddProductRequest, Product>();
 
             CreateMap<UserRegisterModel, User>().ForMember(model => model.Password, opt => opt.Ignore());
+            CreateMap<User, GetUserResponse>();
+            CreateMap<GetUserResponse, User>();
 
             CreateMap<AddAddressRequest, Address>();
             CreateMap<Address, GetAddressResponse>();

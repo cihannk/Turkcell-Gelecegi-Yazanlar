@@ -30,6 +30,11 @@ namespace MarketApp.Business.Concrete
             return await _addressRepository.Add(entity);
         }
 
+        public async Task DeleteAddress(int addressId)
+        {
+            await _addressRepository.Delete(addressId);
+        }
+
         public async Task<IList<GetAddressResponse>> GetUserAddressesWithUserId(int userId)
         {
             if(await _userRepository.IsExist(userId))
