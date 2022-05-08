@@ -2299,7 +2299,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "MarketApp.DataAccess": "1.0.0",
           "MarketApp.Dtos": "1.0.0",
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.4"
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.4",
+          "Stripe.net": "39.108.0"
         },
         "runtime": {
           "MarketApp.Business.dll": {}

@@ -34,6 +34,8 @@ builder.Services.AddScoped<IAddressRepository, EFAddressRepository>();
 builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
 builder.Services.AddScoped<ICartItemRepository, EFCartItemRepository>();
 
+builder.Services.AddSingleton<IPaymentService, StripePaymentService>();
+
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddSession();
 

@@ -28,7 +28,7 @@ namespace MarketApp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _categoryService.AddCategory(category);
+                await _categoryService.AddCategory(category);
                 return Redirect("/");
             }
             return View();

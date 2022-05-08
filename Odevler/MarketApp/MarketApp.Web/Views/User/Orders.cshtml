@@ -25,7 +25,7 @@
                                 <div class="card-body">
                                     <img class="card-image" src="@cartitem.Product.ImageUrl" alt="@cartitem.Product.Name" />
                                     <span class="card-title">Ürün ismi: </span> @cartitem.Product.Name
-                                    <span class="card-title">Fiyat: </span> @(cartitem.PastPrice) TL
+                                    <span class="card-title">Fiyat: </span> @(Math.Round(cartitem.PastPrice, 2)) TL
                                     <span class="card-title">Adet: </span> @cartitem.Amount
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                             <span class="card-title">Sipariş tarihi: </span>
                             <span>@Model[i].OrderDate.ToString("dd MMM yyyy")</span>
                             <span class="card-title">Toplam: </span>
-                            <span>@(orderTotal) TL</span>
+                            <span>@(Math.Round(orderTotal, 2)) TL</span>
                         </div>
                     </div>
                 </div>

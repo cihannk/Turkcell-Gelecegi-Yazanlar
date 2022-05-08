@@ -1,4 +1,5 @@
 ﻿using MarketApp.Business.Abstract;
+using MarketApp.Business.Data;
 using MarketApp.Entities;
 using MarketApp.Web.Extensions;
 using MarketApp.Web.Models;
@@ -13,17 +14,20 @@ namespace MarketApp.Web.Controllers
         private readonly IProductService _productService;
         private readonly IOrderService _orderService;
         private readonly IAddressService _addressService;
+        private readonly IPaymentService _paymentService;
+
         [TempData]
         public int addressId {get;set;}
 
         [TempData]
         public string TotalAmount { get; set; }
 
-        public CartController(IProductService productService, IOrderService orderService, IAddressService addressService)
+        public CartController(IProductService productService, IOrderService orderService, IAddressService addressService, IPaymentService paymentService)
         {
             _productService = productService;
             _orderService = orderService;
             _addressService = addressService;
+            _paymentService = paymentService;
         }
         public IActionResult Index()
         {
@@ -83,55 +87,69 @@ namespace MarketApp.Web.Controllers
         {
             var userId = User.Identity.GetId();
             var cartCollection = HttpContext.Session.GetJson<CartCollection>("cart");
-            var addresses = await _addressService.GetUserAddressesWithUserId(userId);
-            ViewBag.Addresses = addresses;
-            return View(cartCollection);
+            if (cartCollection != null)
+            {
+                var addresses = await _addressService.GetUserAddressesWithUserId(userId);
+                ViewBag.Addresses = addresses;
+                return View(cartCollection);
+            }
+            return RedirectToAction(nameof(Index));
+            
         }
         [Authorize]
         public IActionResult Checkout(int addressId)
         {
             var cartCollection = HttpContext.Session.GetJson<CartCollection>("cart");
-            this.addressId = addressId;   
-            ViewBag.DollarAmount = cartCollection.GetTotal();
-            ViewBag.Total = (int)Math.Round(ViewBag.DollarAmount, 2) * 100;
-            ViewBag.Email = HttpContext.User.Identity.GetEmail() ?? "example@example.com";
-            TotalAmount = ViewBag.Total.ToString();
-            return View();
+            if (cartCollection != null)
+            {
+                this.addressId = addressId;
+                ViewBag.DollarAmount = Math.Round(cartCollection.GetTotal(), 2);
+                ViewBag.Total = (int)ViewBag.DollarAmount* 100;
+                ViewBag.Email = HttpContext.User.Identity.GetEmail() ?? "example@example.com";
+                TotalAmount = ViewBag.Total.ToString();
+                return View();
+            }
+            return RedirectToAction(nameof(Index));
+            
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Processing(string stripeToken, string stripeEmail)
+        public async Task<IActionResult> Processing(string stripeToken, string email)
         {
+            if (stripeToken == null)
+            {
+                return Json("Token is not given");
+            }
+
             var cartCollection = HttpContext.Session.GetJson<CartCollection>("cart");
-            var customerOpts = new CustomerCreateOptions
-            {
-                Email = stripeEmail,
-                Name = HttpContext.User.Identity.Name ?? "Cihan"
-            };
-            var customerService = new CustomerService();
-            Customer customer = customerService.Create(customerOpts);
-            var optionsCharge = new ChargeCreateOptions
-            {
-                Amount = Convert.ToInt64(TempData["TotalAmount"]),
+
+            PaymentProcessingInfos paymentInfo = new PaymentProcessingInfos {
+                Amount = ((long)Math.Round(cartCollection.GetTotal(), 2) * 100),
                 Currency = "TRY",
-                Description = "User cart",
-                Source = stripeToken,
-                ReceiptEmail = stripeEmail
+                CustomerEmail = email,
+                Description = "MarketApp Alışverişi",
+                Name = User.Identity.Name,
+                Token = stripeToken
             };
-            var serviceCharge = new ChargeService();
-            Charge charge = serviceCharge.Create(optionsCharge);
-            if (charge.Status == "succeeded")
+
+            bool isSucceeded = await _paymentService.Processing(paymentInfo);
+            if (isSucceeded)
             {
-                await _orderService.BeginOrder(new Entities.Order { AddressId = addressId, CartItems = createAllCartItems(cartCollection), OrderDate = DateTime.Now, UserId = User.Identity.GetId()});
-                ViewBag.AmountPaid = Convert.ToDecimal(charge.Amount);
-                ViewBag.Customer = customer.Name;
+                await _orderService.BeginOrder(new Entities.Order { AddressId = addressId,
+                    CartItems = createAllCartItems(cartCollection),
+                    OrderDate = DateTime.Now,
+                    UserId = User.Identity.GetId()
+                });
+
+                ViewBag.AmountPaid = Convert.ToDecimal(paymentInfo.Amount);
+                ViewBag.Customer = paymentInfo.Name;
                 cartCollection.ClearCart();
                 saveToSession(cartCollection);
                 return View();
             }
             else
             {
-                return Json("Db sorunu");
+                return Json("Payment failed");
             }
         }
 
