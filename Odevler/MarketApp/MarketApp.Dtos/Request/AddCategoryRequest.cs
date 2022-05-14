@@ -12,6 +12,7 @@ namespace MarketApp.Dtos.Request
         [Required]
         [MinLength(3)]
         public string Name { get; set; }
+        [Required]
         public string ImageUrl { get; set; }
     }
 }

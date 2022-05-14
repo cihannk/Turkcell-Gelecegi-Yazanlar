@@ -35,6 +35,23 @@ namespace MarketApp.Business.Concrete
             await _addressRepository.Delete(addressId);
         }
 
+        public async Task<Address> GetAddressById(int addressId)
+        {
+            if (await _addressRepository.IsExist(addressId)){
+                var address = await _addressRepository.GetEntityById(addressId);
+                return address;
+            }
+              throw new InvalidOperationException("Address is not exist with given id");
+        }
+
+        public async Task<IList<Address>> GetAllAddresses()
+        {
+            var addresses = await _addressRepository.GetAllEntities();
+            if (addresses.Count> 0)
+                return addresses;
+            throw new InvalidOperationException("There is no address in db");
+        }
+
         public async Task<IList<GetAddressResponse>> GetUserAddressesWithUserId(int userId)
         {
             if(await _userRepository.IsExist(userId))
@@ -50,6 +67,27 @@ namespace MarketApp.Business.Concrete
             {
                 throw new InvalidOperationException("There is no user with given userId");
             }
+        }
+
+        public async Task<IList<GetAddressResponse>> GetUserAddressesWithUsername(string username)
+        {
+            var user = await _userRepository.GetEntityByUsername(username);
+            if (user != null)
+            {
+                var addresses = await _addressRepository.GetAllEntitiesByUserId(user.Id);
+                if (addresses != null)
+                {
+                    return _mapper.Map<List<GetAddressResponse>>(addresses);
+                }
+                throw new InvalidOperationException("There is no address with given username");
+            }
+            throw new InvalidOperationException("There is no user with given username");
+        }
+
+        public async Task<int> UpdateAddress(UpdateAddressRequest address)
+        {
+            var entity = _mapper.Map<Address>(address);
+            return await _addressRepository.Update(entity);
         }
     }
 }

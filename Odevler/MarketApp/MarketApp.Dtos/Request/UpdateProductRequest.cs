@@ -12,13 +12,18 @@ namespace MarketApp.Dtos.Request
     {
         [Required]
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public double? Price { get; set; }
-        public string? Description { get; set; }
-        public string? ImageUrl { get; set; }
-        public int? CategoryId { get; set; }
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public double Price { get; set; }
+        public string Description { get; set; }
+        [Required]
+        public string ImageUrl { get; set; }
+        [Required]
+        public int CategoryId { get; set; }
 
-        public double? Discount { get; set; }
-        public bool? IsActive { get; set; } = true;
+        public double Discount { get; set; }
+        [Required]
+        public bool IsActive { get; set; } = true;
     }
 }

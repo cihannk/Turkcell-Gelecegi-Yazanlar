@@ -32,10 +32,9 @@ namespace MarketApp.DataAccess.Repositories
 
         public async Task<IList<User>> GetAllEntities()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Include(user => user.Role).ToListAsync();
         }
 
-        // TODO find maybe?
         public async Task<User> GetEntityByEmail(string email)
         {
             return await _context.Users.Include(u =>u.Role).FirstOrDefaultAsync(x => x.Email == email);
@@ -46,17 +45,24 @@ namespace MarketApp.DataAccess.Repositories
             return await _context.Users.AsNoTracking().Include(u => u.Role).FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<User> GetEntityByUsername(string username)
+        {
+            return await _context.Users.FirstOrDefaultAsync(x => x.Username.ToLower() == username.ToLower());
+        }
+
         public async Task<bool> IsEmailExist(string email)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
-            if (user == null)
-                return false;
-            return true;
+            return await _context.Users.AnyAsync(x => x.Email == email);
         }
 
         public async Task<bool> IsExist(int id)
         {
             return await _context.Users.AnyAsync(x => x.Id == id);
+        }
+
+        public async Task<bool> IsUsernameExist(string username)
+        {
+            return await _context.Users.AnyAsync(x => x.Username == username);
         }
 
         public async Task<int> Update(User entity)

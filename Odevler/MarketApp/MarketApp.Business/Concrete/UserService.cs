@@ -2,6 +2,7 @@
 using MarketApp.Business.Abstract;
 using MarketApp.DataAccess.Repositories;
 using MarketApp.Dtos.Models;
+using MarketApp.Dtos.Request;
 using MarketApp.Dtos.Response;
 using MarketApp.Entities;
 using System;
@@ -37,8 +38,27 @@ namespace MarketApp.Business.Concrete
             }
             else
             {
-                throw new InvalidOperationException("User not found");
+                throw new InvalidOperationException("Kullanıcı bulunamadı");
             }
+        }
+
+        public async Task DeleteUser(int id)
+        {
+            if (! await _userRepository.IsExist(id))
+            {
+                await _userRepository.Delete(id);
+            }
+            throw new InvalidOperationException("Silinmek istenen user dbde yok");
+        }
+
+        public async Task<IList<GetUsersResponse>> GetAllUsers()
+        {
+            var entities = await _userRepository.GetAllEntities();
+            if (entities != null)
+            {
+                return _mapper.Map<List<GetUsersResponse>>(entities);
+            }
+            throw new InvalidOperationException("There is no user in db");
         }
 
         public async Task<GetUserResponse> GetUser(int userId)
@@ -49,6 +69,16 @@ namespace MarketApp.Business.Concrete
                 return _mapper.Map<GetUserResponse>(user);
             }
             throw new InvalidOperationException("User not exist with given userId");
+        }
+
+        public async Task<GetUserResponse> GetUserByUsername(string username)
+        {
+            var user = await _userRepository.GetEntityByUsername(username);
+            if (user != null)
+            {
+                return _mapper.Map<GetUserResponse>(user);
+            }
+            throw new InvalidOperationException("User not exist with given username");
         }
 
         public async Task<User> Login(UserLoginModel model)
@@ -69,7 +99,11 @@ namespace MarketApp.Business.Concrete
         {
             if (await _userRepository.IsEmailExist(model.Email))
             {
-                throw new InvalidOperationException("An account is already using this email");
+                throw new InvalidOperationException("Aynı email'i kullanan bir kullanıcı zaten var");
+            }
+            if (await _userRepository.IsUsernameExist(model.Username))
+            {
+                throw new InvalidOperationException("Aynı username'i kullanan bir kullanıcı zaten var");
             }
 
             byte[] salt = _hashingService.ProduceSalt(128);
@@ -101,6 +135,45 @@ namespace MarketApp.Business.Concrete
             entity.RegisterDate = dbEntity.RegisterDate;
 
             await _userRepository.Update(entity);
+        }
+
+        public async Task UpdateUser(UpdateUserRequest user)
+        {
+            var dbEntity = await _userRepository.GetEntityById(user.Id);
+            if (await _userRepository.IsExist(user.Id))
+            {
+                // don't check user has same email in db if update request is same with updating entity
+
+                if (user.Email != dbEntity.Email)
+                {
+                    if (await _userRepository.IsEmailExist(user.Email))
+                    {
+                        throw new InvalidOperationException("Bu emaile sahip başka bir kullanıcı var");
+                    }
+                }
+                if (user.Username != dbEntity.Username)
+                {
+                    if (await _userRepository.IsUsernameExist(user.Username))
+                    {
+                        throw new InvalidOperationException("Bu kullanıcı adına sahip başka bir kullanıcı var");
+                    }
+                }             
+
+                var salt = _hashingService.ProduceSalt(128);
+                var hashedPassword = _hashingService.Hash(user.Password, salt);
+                var userEntity = _mapper.Map<User>(user);
+
+                userEntity.Password = hashedPassword;
+                userEntity.Salt = salt;
+                userEntity.RegisterDate = dbEntity.RegisterDate;
+
+                await _userRepository.Update(userEntity);
+            }
+            else
+            {
+                throw new InvalidOperationException("Kullanıcı veritabanında yok");
+            }
+         
         }
     }
 }

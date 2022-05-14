@@ -13,6 +13,10 @@ namespace MarketApp.Business.Abstract
     {
         Task<int> AddAddress(AddAddressRequest address);
         Task<IList<GetAddressResponse>> GetUserAddressesWithUserId(int userId);
+        Task<IList<GetAddressResponse>> GetUserAddressesWithUsername(string username);
         Task DeleteAddress(int addressId);
+        Task<IList<Address>> GetAllAddresses();
+        Task<Address> GetAddressById(int addressId);
+        Task<int> UpdateAddress(UpdateAddressRequest address);
     }
 }

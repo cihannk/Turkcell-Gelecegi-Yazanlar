@@ -25,15 +25,16 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, EFUserRepository>();
-builder.Services.AddScoped<IHashingService, HashingService>();
 
 builder.Services.AddScoped<IOrderService, MarketApp.Business.Concrete.OrderService>();
-builder.Services.AddScoped<IUserRepository, EFUserRepository>();
+builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+
 builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IAddressRepository, EFAddressRepository>();
-builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+
 builder.Services.AddScoped<ICartItemRepository, EFCartItemRepository>();
 
+builder.Services.AddScoped<IHashingService, HashingService>();
 builder.Services.AddSingleton<IPaymentService, StripePaymentService>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
