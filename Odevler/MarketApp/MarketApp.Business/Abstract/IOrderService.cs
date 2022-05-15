@@ -10,10 +10,10 @@ namespace MarketApp.Business.Abstract
 {
     public interface IOrderService
     {
-        Task BeginOrder(Order order);
+        Task BeginOrder(AddOrderRequest order);
         Task<IList<Order>> GetAllOrders();
         Task<IList<Order>> GetOrdersByUserId(int id);
-        Task<CartItem> CreateCartItem(int productId, int amount, double pastPrice);
+        Task ClearAllCartItemsInOrder(int orderId);
         Task<Order> GetOrderById(int id);
         Task UpdateOrder(UpdateOrderRequest order);
         Task DeleteOrder(int id);

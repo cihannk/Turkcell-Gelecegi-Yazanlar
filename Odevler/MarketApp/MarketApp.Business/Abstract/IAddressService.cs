@@ -18,5 +18,6 @@ namespace MarketApp.Business.Abstract
         Task<IList<Address>> GetAllAddresses();
         Task<Address> GetAddressById(int addressId);
         Task<int> UpdateAddress(UpdateAddressRequest address);
+        Task<bool> CheckIfUserHasAddress(int userId, int addressId);
     }
 }

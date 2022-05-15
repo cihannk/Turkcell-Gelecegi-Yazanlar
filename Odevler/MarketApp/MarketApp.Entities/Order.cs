@@ -18,6 +18,8 @@ namespace MarketApp.Entities
         public User User { get; set; }
 
         public int AddressId { get; set; }
+        [JsonIgnore]
+        [IgnoreDataMember]
         public Address Address { get; set; }
 
         public IList<CartItem> CartItems { get; set; }

@@ -10,5 +10,6 @@ namespace MarketApp.DataAccess.Repositories
     public interface IOrderRepository: IRepository<Order>
     {
         Task<IList<Order>> GetEntitesByUserId(int userId);
+        Task ClearAllCartItems(int orderId);
     }
 }

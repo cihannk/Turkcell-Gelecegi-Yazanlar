@@ -44,8 +44,12 @@ builder.Services.AddScoped<IAddressRepository, EFAddressRepository>();
 
 builder.Services.AddScoped<ICartItemRepository, EFCartItemRepository>();
 
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IRoleRepository, EFRoleRepository>();
+
 builder.Services.AddScoped<IHashingService, HashingService>();
 builder.Services.AddSingleton<IPaymentService, StripePaymentService>();
+
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddCors(opt => opt.AddPolicy("Allow", builder =>

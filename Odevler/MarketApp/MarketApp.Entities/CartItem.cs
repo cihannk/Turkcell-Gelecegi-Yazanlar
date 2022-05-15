@@ -12,6 +12,8 @@ namespace MarketApp.Entities
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
+        [JsonIgnore]
+        [IgnoreDataMember]
         public Product Product { get; set; }
         public int Amount { get; set; }
         public double PastPrice { get; set; }

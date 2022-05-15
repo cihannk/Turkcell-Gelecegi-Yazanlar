@@ -34,7 +34,11 @@ namespace MarketApp.Business.MapperProfile
             CreateMap<UpdateAddressRequest, Address>();
 
             CreateMap<UpdateOrderRequest, Order>();
+            CreateMap<AddOrderRequest, Order>();
 
+            CreateMap<AddCartItemRequest, CartItem>();
+
+            CreateMap<AddRoleRequest, Role>();
         }
     }
 }

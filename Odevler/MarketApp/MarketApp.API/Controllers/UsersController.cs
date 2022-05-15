@@ -1,4 +1,5 @@
 ﻿using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.SuccessMessages;
 using MarketApp.Dtos.Models;
 using MarketApp.Dtos.Request;
 using Microsoft.AspNetCore.Authorization;
@@ -39,7 +40,7 @@ namespace MarketApp.API.Controllers
         public async Task<IActionResult> Update(UpdateUserRequest user)
         {
             await _userService.UpdateUser(user);
-            return Ok("User başarıyla güncellendi");
+            return Ok(SuccessMessages.User.SuccessfullyUpdated);
         }
         [HttpPost]
         public async Task<IActionResult> Create(UserRegisterModel userModel)
@@ -52,7 +53,7 @@ namespace MarketApp.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _userService.DeleteUser(id);
-            return Ok("User başarıyla silindi");
+            return Ok(SuccessMessages.User.SuccessfullyDeleted);
         }
         [HttpPost("Login")]
         [AllowAnonymous]
@@ -63,6 +64,7 @@ namespace MarketApp.API.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
                 new Claim(ClaimTypes.Role, user.Role.Name),
+                new Claim(type: "id", value: user.Id.ToString())
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JWTSecretKey")));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -79,7 +81,7 @@ namespace MarketApp.API.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
                 new Claim(ClaimTypes.Role, user.Role.Name),
-                new Claim(ClaimTypes.Hash, Encoding.UTF8.GetString(user.Salt))
+                new Claim(type: "id", value: user.Id.ToString())
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JWTSecretKey")));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

@@ -1,6 +1,12 @@
-﻿using MarketApp.Business.Abstract;
+﻿using MarketApp.API.Extensions;
+using MarketApp.API.Models;
+using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.ErrorMessages;
+using MarketApp.Business.Constants.SuccessMessages;
+using MarketApp.Business.Data;
 using MarketApp.Dtos.Request;
 using MarketApp.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketApp.API.Controllers
@@ -18,33 +24,59 @@ namespace MarketApp.API.Controllers
             _paymentService = paymentService;
         }
         [HttpGet]
+        [Authorize(Roles ="Admin,Moderator")]
         public async Task<IActionResult> GetAll()
         {
             var orders = await _orderService.GetAllOrders();
             return Ok(orders);
         }
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Moderator")]
         public async Task<IActionResult> GetById(int id)
         {
             var order = await _orderService.GetOrderById(id);
             return Ok(order);
         }
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(UpdateOrderRequest order)
         {
+            await _orderService.ClearAllCartItemsInOrder(order.Id);
             await _orderService.UpdateOrder(order);
-            return Ok("Sipariş başarıyla güncellendi");
+            return Ok(SuccessMessages.Order.SuccessfullyUpdated);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(AddOrderRequest order)
         {
-            return Ok("Sipariş başarıyla eklendi");
+            await _orderService.BeginOrder(order);
+            return Ok(SuccessMessages.Order.SuccessfullyCreated);
         }
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _orderService.DeleteOrder(id);
-            return Ok("Sipariş iptal edildi");
+            return Ok(SuccessMessages.Order.SuccessfullyDeleted);
+        }
+        //Controllers for user
+        [HttpPost("User")]
+        [Authorize]
+        public async Task<IActionResult> Order(OrderPaymentModel orderPaymentModel)
+        {
+            if(await _paymentService.Processing(orderPaymentModel.PaymentProcessingInfo))
+            {
+                await _orderService.BeginOrder(new AddOrderRequest { UserId= User.Identity.GetId(), AddressId= orderPaymentModel.AddressId, CartItems= orderPaymentModel.CartItems});
+                return Ok(SuccessMessages.Order.SuccessfullyCreatedUserOrder);
+            }
+            return BadRequest(ErrorMessages.Order.PaymentFail);
+        }
+        [HttpGet("User")]
+        [Authorize]
+        public async Task<IActionResult> GetUserOrders()
+        {
+            var orders = await _orderService.GetOrdersByUserId(User.Identity.GetId());
+            return Ok(orders);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.ErrorMessages;
 using MarketApp.DataAccess.Repositories;
 using MarketApp.Dtos.Models;
 using MarketApp.Dtos.Request;
@@ -38,7 +39,7 @@ namespace MarketApp.Business.Concrete
             }
             else
             {
-                throw new InvalidOperationException("Kullanıcı bulunamadı");
+                throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenEmail);
             }
         }
 
@@ -48,7 +49,7 @@ namespace MarketApp.Business.Concrete
             {
                 await _userRepository.Delete(id);
             }
-            throw new InvalidOperationException("Silinmek istenen user dbde yok");
+            throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
         }
 
         public async Task<IList<GetUsersResponse>> GetAllUsers()
@@ -58,7 +59,7 @@ namespace MarketApp.Business.Concrete
             {
                 return _mapper.Map<List<GetUsersResponse>>(entities);
             }
-            throw new InvalidOperationException("There is no user in db");
+            throw new InvalidOperationException(ErrorMessages.User.NoUser);
         }
 
         public async Task<GetUserResponse> GetUser(int userId)
@@ -68,7 +69,7 @@ namespace MarketApp.Business.Concrete
             {
                 return _mapper.Map<GetUserResponse>(user);
             }
-            throw new InvalidOperationException("User not exist with given userId");
+            throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
         }
 
         public async Task<GetUserResponse> GetUserByUsername(string username)
@@ -78,32 +79,32 @@ namespace MarketApp.Business.Concrete
             {
                 return _mapper.Map<GetUserResponse>(user);
             }
-            throw new InvalidOperationException("User not exist with given username");
+            throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUsername);
         }
 
         public async Task<User> Login(UserLoginModel model)
         {
             if (!await _userRepository.IsEmailExist(model.Email))
             {
-                throw new InvalidOperationException("Email is not exist");
+                throw new InvalidOperationException(ErrorMessages.User.NotRegisteredWithGivenEmail);
             }
             var user = await _userRepository.GetEntityByEmail(model.Email);
             if (_hashingService.CompareHash(model.Password, user.Password, user.Salt))
             {
                 return user;
             }
-            throw new InvalidOperationException("Email or password is wrong");
+            throw new InvalidOperationException(ErrorMessages.User.EmailOrPassWrong);
         }
 
         public async Task<User> Register(UserRegisterModel model)
         {
             if (await _userRepository.IsEmailExist(model.Email))
             {
-                throw new InvalidOperationException("Aynı email'i kullanan bir kullanıcı zaten var");
+                throw new InvalidOperationException(ErrorMessages.User.UserAlreadyUsingThisEmail);
             }
             if (await _userRepository.IsUsernameExist(model.Username))
             {
-                throw new InvalidOperationException("Aynı username'i kullanan bir kullanıcı zaten var");
+                throw new InvalidOperationException(ErrorMessages.User.UserAlreadyUsingThisUsername);
             }
 
             byte[] salt = _hashingService.ProduceSalt(128);
@@ -124,7 +125,7 @@ namespace MarketApp.Business.Concrete
         {
             if (! await _userRepository.IsExist(user.Id))
             {
-                throw new InvalidOperationException("User doesn't exist");
+                throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
             }
             var dbEntity = await _userRepository.GetEntityById(user.Id);
             var entity = _mapper.Map<User>(user);
@@ -148,14 +149,14 @@ namespace MarketApp.Business.Concrete
                 {
                     if (await _userRepository.IsEmailExist(user.Email))
                     {
-                        throw new InvalidOperationException("Bu emaile sahip başka bir kullanıcı var");
+                        throw new InvalidOperationException(ErrorMessages.User.UserAlreadyUsingThisEmail);
                     }
                 }
                 if (user.Username != dbEntity.Username)
                 {
                     if (await _userRepository.IsUsernameExist(user.Username))
                     {
-                        throw new InvalidOperationException("Bu kullanıcı adına sahip başka bir kullanıcı var");
+                        throw new InvalidOperationException(ErrorMessages.User.UserAlreadyUsingThisUsername);
                     }
                 }             
 
@@ -171,7 +172,7 @@ namespace MarketApp.Business.Concrete
             }
             else
             {
-                throw new InvalidOperationException("Kullanıcı veritabanında yok");
+                throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
             }
          
         }

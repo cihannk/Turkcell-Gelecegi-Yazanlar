@@ -10,6 +10,6 @@ namespace MarketApp.DataAccess.Repositories
     public interface IAddressRepository: IRepository<Address>
     {
         Task<IList<Address>> GetAllEntitiesByUserId(int userId);
-
+        Task<Address> GetByDesiredName(string name);
     }
 }

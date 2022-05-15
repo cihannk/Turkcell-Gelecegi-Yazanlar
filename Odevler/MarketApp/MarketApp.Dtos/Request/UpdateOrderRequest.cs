@@ -13,7 +13,7 @@ namespace MarketApp.Dtos.Request
 
         public int UserId { get; set; }
         public int AddressId { get; set; }
-        public IList<CartItem> CartItems { get; set; }
+        public IList<AddCartItemRequest> CartItems { get; set; }
         public DateTime OrderDate { get; set; }
     }
 }

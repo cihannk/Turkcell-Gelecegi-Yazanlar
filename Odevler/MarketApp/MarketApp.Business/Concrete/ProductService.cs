@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.ErrorMessages;
 using MarketApp.DataAccess.Repositories;
 using MarketApp.Dtos.Request;
 using MarketApp.Dtos.Response;
@@ -28,7 +29,7 @@ namespace MarketApp.Business.Concrete
         {
             if (await _productRepository.GetByName(product.Name) != null)
             {
-                throw new InvalidOperationException("Product with given name is already exist");
+                throw new InvalidOperationException(ErrorMessages.Product.AlreadyExistWithGivenProductName);
             }
             var productToAdd = _mapper.Map<Product>(product);
             return await _productRepository.Add(productToAdd);
@@ -44,7 +45,7 @@ namespace MarketApp.Business.Concrete
                     return _mapper.Map<GetProductsResponse>(productEntity);
                 }
             }
-            throw new InvalidOperationException("Product couldn't found");
+            throw new InvalidOperationException(ErrorMessages.Product.NotFoundWithGivenProductId);
         }
 
         public async Task<GetProductsResponse> GetProductWithoutCheckingActive(int id)
@@ -54,7 +55,7 @@ namespace MarketApp.Business.Concrete
                 var productEntity = await _productRepository.GetEntityById(id);
                 return _mapper.Map<GetProductsResponse>(productEntity);
             }
-            throw new InvalidOperationException("Product couldn't found");
+            throw new InvalidOperationException(ErrorMessages.Product.NotFoundWithGivenProductId);
         }
 
         public async Task<IList<GetProductsResponse>> GetProducts()
@@ -66,7 +67,7 @@ namespace MarketApp.Business.Concrete
 
             if (filtered == null)
             {
-                throw new InvalidOperationException("There is no product");
+                throw new InvalidOperationException(ErrorMessages.Product.NoProduct);
             }
             
             return _mapper.Map<IList<GetProductsResponse>>(filtered);
@@ -78,7 +79,7 @@ namespace MarketApp.Business.Concrete
 
             if (entities == null)
             {
-                throw new InvalidOperationException("There is no product");
+                throw new InvalidOperationException(ErrorMessages.Product.NoProduct);
             }
 
             return _mapper.Map<IList<GetProductsResponse>>(entities);
@@ -94,13 +95,13 @@ namespace MarketApp.Business.Concrete
             var category = await _categoryRepository.GetByName(categoryName);
             if (category == null)
             {
-                throw new InvalidOperationException("Category is not exist with given categoryName");
+                throw new InvalidOperationException(ErrorMessages.Category.NotFoundWithGivenCategoryName);
             }
             
             var products = _mapper.Map<IList<GetProductsResponse>>(getActiveEntities(category.Products));
             if (products == null)
             {
-                throw new InvalidOperationException("Products are not exist with given categoryName");
+                throw new InvalidOperationException(ErrorMessages.Product.NotFoundWithGivenCategoryName);
             }
             return products;
         }
@@ -110,14 +111,14 @@ namespace MarketApp.Business.Concrete
             if (await _productRepository.IsExist(id))
                 await _productRepository.Delete(id);
             else
-                throw new InvalidOperationException("Product is not exist");
+                throw new InvalidOperationException(ErrorMessages.Product.NotFoundWithGivenProductId);
         }
 
         public async Task<int> UpdateProduct(UpdateProductRequest product)
         {
             if (!await _productRepository.IsExist(product.Id))
             {
-                throw new InvalidOperationException("Product cannot be updated because is not exist");
+                throw new InvalidOperationException(ErrorMessages.Product.NotFoundWithGivenProductId);
             }
             var dbEntity = await _productRepository.GetEntityById(product.Id);
             var entity = _mapper.Map<Product>(product);

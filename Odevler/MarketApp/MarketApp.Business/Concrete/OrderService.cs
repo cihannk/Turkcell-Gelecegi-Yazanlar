@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.ErrorMessages;
 using MarketApp.DataAccess.Repositories;
 using MarketApp.Dtos.Request;
 using MarketApp.Entities;
@@ -29,36 +30,37 @@ namespace MarketApp.Business.Concrete
             _productRepository = productRepository;
             _mapper = mapper;
         }
-        public async Task BeginOrder(Order order)
+        public async Task BeginOrder(AddOrderRequest order)
         {
-            var user = await _userRepository.GetEntityById(order.UserId);
-            var address = await _addressRepository.GetEntityById(order.AddressId);
+            var isUserExist = await _userRepository.IsExist(order.UserId);
+            var isAddressExist = await _addressRepository.IsExist(order.AddressId);
 
-            if (user != null && address != null && order.CartItems != null)
+            if (isUserExist && isAddressExist && order.CartItems != null)
             {
                 // for creation of cartItems
                 for(int i = 0; i<order.CartItems.Count; i++)
                 {
-                    order.CartItems[i] = await CreateCartItem(order.CartItems[i].ProductId, order.CartItems[i].Amount, order.CartItems[i].PastPrice);
+                    order.CartItems[i] = await CreateCartItem(order.CartItems[i]);
                 }
-                await _orderRepository.Add(order);
+                var orderEntity = _mapper.Map<Order>(order);
+                orderEntity.OrderDate = DateTime.Now;
+                await _orderRepository.Add(orderEntity);
             }
             else
             {
-                throw new Exception("Order couldn't proceed");
+                throw new Exception(ErrorMessages.Order.NotProceed);
             }
         }
 
-        public async Task<CartItem> CreateCartItem(int productId, int amount, double pastPrice)
+        private async Task<AddCartItemRequest> CreateCartItem(AddCartItemRequest addCartItemRequest)
         {
-                var product = await _productRepository.GetEntityById(productId);
                 var cartItem = new CartItem {
-                    ProductId = productId,
-                    Amount = amount,
-                    PastPrice= pastPrice
+                    ProductId = addCartItemRequest.ProductId,
+                    Amount = addCartItemRequest.Amount,
+                    PastPrice= addCartItemRequest.PastPrice
                 };
                 await _cartItemRepository.Add(cartItem);
-            return cartItem;
+            return addCartItemRequest;
         }
 
         public async Task DeleteOrder(int id)
@@ -68,7 +70,7 @@ namespace MarketApp.Business.Concrete
             }
             else
             {
-                throw new InvalidOperationException("Sipariş veritabanında yok");
+                throw new InvalidOperationException(ErrorMessages.Order.NotFoundWithGivenOrderId);
             }
         }
 
@@ -79,7 +81,7 @@ namespace MarketApp.Business.Concrete
             {
                 return allOrders;
             }
-            throw new InvalidOperationException("Veritabanında sipariş yok");
+            throw new InvalidOperationException(ErrorMessages.Order.NoOrder);
         }
 
         public async Task<Order> GetOrderById(int id)
@@ -89,7 +91,7 @@ namespace MarketApp.Business.Concrete
                 var order = await _orderRepository.GetEntityById(id);
                 return order;
             }
-            throw new InvalidOperationException("Veritabanında sipariş bulunamadı");
+            throw new InvalidOperationException(ErrorMessages.Order.NotFoundWithGivenOrderId);
         }
 
         public async Task<IList<Order>> GetOrdersByUserId(int userId)
@@ -98,7 +100,7 @@ namespace MarketApp.Business.Concrete
             if (orders != null) {
                 return orders;
             }
-            throw new InvalidOperationException("There is no order with specified userId");
+            throw new InvalidOperationException(ErrorMessages.Order.NotFoundWithGivenUserId);
         }
 
         public async Task UpdateOrder(UpdateOrderRequest order)
@@ -112,14 +114,25 @@ namespace MarketApp.Business.Concrete
                 }
                 else
                 {
-                    throw new InvalidOperationException("Kullanıcı veritanabında yok");
+                    throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
                 }
             }
             else
             {
-                throw new InvalidOperationException("Order veritabanında yok");
+                throw new InvalidOperationException(ErrorMessages.Order.NotFoundWithGivenOrderId);
             }
 
+        }
+        public async Task ClearAllCartItemsInOrder(int orderId)
+        {
+            if(await _orderRepository.IsExist(orderId))
+            {
+                await _orderRepository.ClearAllCartItems(orderId);
+            }
+            else
+            {
+                throw new InvalidOperationException(ErrorMessages.Order.NotFoundWithGivenOrderId);
+            }
         }
     }
 }

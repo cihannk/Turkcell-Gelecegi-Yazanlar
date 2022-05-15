@@ -1,5 +1,7 @@
 ﻿using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.SuccessMessages;
 using MarketApp.Dtos.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketApp.API.Controllers
@@ -28,18 +30,18 @@ namespace MarketApp.API.Controllers
             var product = await _productService.GetProduct(id);
             return Ok(product);
         }
-
+        [Authorize(Roles ="Admin")]
         [HttpPut]
         public async Task<IActionResult> Update(UpdateProductRequest product)
         {
             if (ModelState.IsValid)
             {
                 await _productService.UpdateProduct(product);
-                return Ok("Ürün başarıyla güncellendi");
+                return Ok(SuccessMessages.Product.SuccessfullyUpdated);
             }
             return BadRequest(ModelState);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(AddProductRequest product)
         {
@@ -50,11 +52,12 @@ namespace MarketApp.API.Controllers
             }
             return BadRequest(ModelState);
         }
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
            await _productService.RemoveProduct(id);
-           return Ok("Product başarıyla silindi");
+           return Ok(SuccessMessages.Product.SuccessfullyDeleted);
         }
     }
 }

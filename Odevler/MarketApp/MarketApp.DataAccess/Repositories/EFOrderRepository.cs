@@ -23,6 +23,13 @@ namespace MarketApp.DataAccess.Repositories
             return await _context.SaveChangesAsync();
         }
 
+        public async Task ClearAllCartItems(int orderId)
+        {
+            var order = await _context.Orders.AsNoTracking().Include(order => order.CartItems).FirstOrDefaultAsync(x => x.Id == orderId);
+            order.CartItems.Clear();
+            await _context.SaveChangesAsync();
+        }
+
         public async Task Delete(int id)
         {
             var order = await _context.Orders.FindAsync(id);

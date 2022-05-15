@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.ErrorMessages;
 using MarketApp.DataAccess.Repositories;
 using MarketApp.Dtos.Request;
 using MarketApp.Dtos.Response;
@@ -26,13 +27,34 @@ namespace MarketApp.Business.Concrete
         }
         public async Task<int> AddAddress(AddAddressRequest address)
         {
-            var entity = _mapper.Map<Address>(address);
-            return await _addressRepository.Add(entity);
+            if (!await isDesiredNameExistInUserAddresses(address.UserId, address.DesiredName))
+            {
+                var entity = _mapper.Map<Address>(address);
+                return await _addressRepository.Add(entity);
+            }
+            throw new InvalidOperationException(ErrorMessages.Address.SameAddressExistWithGivenHeader);
+        }
+
+        public async Task<bool> CheckIfUserHasAddress(int userId, int addressId)
+        {
+            var addressEntity= await _addressRepository.GetEntityById(addressId);
+            if (addressEntity.UserId == userId)
+            {
+                return true;
+            }
+            return false;
         }
 
         public async Task DeleteAddress(int addressId)
         {
-            await _addressRepository.Delete(addressId);
+            if (await _addressRepository.IsExist(addressId))
+            {
+                await _addressRepository.Delete(addressId);
+            }
+            else
+            {
+                throw new InvalidOperationException(ErrorMessages.Address.NotFoundWithGivenAddressId);
+            }
         }
 
         public async Task<Address> GetAddressById(int addressId)
@@ -41,7 +63,7 @@ namespace MarketApp.Business.Concrete
                 var address = await _addressRepository.GetEntityById(addressId);
                 return address;
             }
-              throw new InvalidOperationException("Address is not exist with given id");
+              throw new InvalidOperationException(ErrorMessages.Address.NotFoundWithGivenAddressId);
         }
 
         public async Task<IList<Address>> GetAllAddresses()
@@ -49,7 +71,7 @@ namespace MarketApp.Business.Concrete
             var addresses = await _addressRepository.GetAllEntities();
             if (addresses.Count> 0)
                 return addresses;
-            throw new InvalidOperationException("There is no address in db");
+            throw new InvalidOperationException(ErrorMessages.Address.NoAddress);
         }
 
         public async Task<IList<GetAddressResponse>> GetUserAddressesWithUserId(int userId)
@@ -61,11 +83,11 @@ namespace MarketApp.Business.Concrete
                 {
                     return _mapper.Map<List<GetAddressResponse>>(addressEntities);
                 }
-                throw new InvalidOperationException("There is no address with given userId");
+                throw new InvalidOperationException(ErrorMessages.Address.NotFoundWithGivenUserId);
             }
             else
             {
-                throw new InvalidOperationException("There is no user with given userId");
+                throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
             }
         }
 
@@ -79,15 +101,29 @@ namespace MarketApp.Business.Concrete
                 {
                     return _mapper.Map<List<GetAddressResponse>>(addresses);
                 }
-                throw new InvalidOperationException("There is no address with given username");
+                throw new InvalidOperationException(ErrorMessages.Address.NotFoundWithGivenUserId);
             }
-            throw new InvalidOperationException("There is no user with given username");
+            throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
         }
 
         public async Task<int> UpdateAddress(UpdateAddressRequest address)
         {
-            var entity = _mapper.Map<Address>(address);
-            return await _addressRepository.Update(entity);
+
+            if (! await isDesiredNameExistInUserAddresses(address.UserId, address.DesiredName))
+            {
+                var entity = _mapper.Map<Address>(address);
+                return await _addressRepository.Update(entity);
+            }
+            throw new InvalidOperationException(ErrorMessages.Address.SameAddressExistWithGivenHeader);
+        }
+        private async Task<bool> isDesiredNameExistInUserAddresses(int userId, string desiredName)
+        {
+            var addresses = await _addressRepository.GetAllEntitiesByUserId(userId);
+            if(addresses.Any(x => x.DesiredName == desiredName))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

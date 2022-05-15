@@ -14,7 +14,6 @@ namespace MarketApp.Dtos.Request
         public int UserId { get; set; }
         [Required]
         public int AddressId { get; set; }
-        [Required]
-        public IList<CartItem> CartItems { get; set; }
+        public IList<AddCartItemRequest> CartItems { get; set; }
     }
 }

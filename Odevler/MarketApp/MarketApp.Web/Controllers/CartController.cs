@@ -1,5 +1,6 @@
 ﻿using MarketApp.Business.Abstract;
 using MarketApp.Business.Data;
+using MarketApp.Dtos.Request;
 using MarketApp.Entities;
 using MarketApp.Web.Extensions;
 using MarketApp.Web.Models;
@@ -135,11 +136,8 @@ namespace MarketApp.Web.Controllers
             bool isSucceeded = await _paymentService.Processing(paymentInfo);
             if (isSucceeded)
             {
-                await _orderService.BeginOrder(new Entities.Order { AddressId = addressId,
-                    CartItems = createAllCartItems(cartCollection),
-                    OrderDate = DateTime.Now,
-                    UserId = User.Identity.GetId()
-                });
+                var orderRequest = new AddOrderRequest { UserId = User.Identity.GetId(), AddressId = addressId, CartItems = createAllCartItems(cartCollection) };
+                await _orderService.BeginOrder(orderRequest);
 
                 ViewBag.AmountPaid = Convert.ToDecimal(paymentInfo.Amount);
                 ViewBag.Customer = paymentInfo.Name;
@@ -159,11 +157,11 @@ namespace MarketApp.Web.Controllers
             return cart ?? new CartCollection();
         }
 
-        private List<Entities.CartItem> createAllCartItems(CartCollection collection)
+        private List<AddCartItemRequest> createAllCartItems(CartCollection collection)
         {
-            List<Entities.CartItem> cartItems = new List<Entities.CartItem>();
+            List<AddCartItemRequest> cartItems = new List<AddCartItemRequest>();
             foreach(var collectionCartItem in collection.CartItems) {
-                var result = new Entities.CartItem { ProductId = collectionCartItem.Product.Id, Amount = collectionCartItem.Quantity, PastPrice= (collectionCartItem.Product.Price * (1 - collectionCartItem.Product.Discount))};
+                var result = new AddCartItemRequest { ProductId = collectionCartItem.Product.Id, Amount = collectionCartItem.Quantity, PastPrice= (collectionCartItem.Product.Price * (1 - collectionCartItem.Product.Discount))};
                 cartItems.Add(result);
             }
             return cartItems;

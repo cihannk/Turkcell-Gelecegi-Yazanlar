@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MarketApp.Business.Abstract;
+using MarketApp.Business.Constants.ErrorMessages;
 using MarketApp.DataAccess.Repositories;
 using MarketApp.Dtos.Request;
 using MarketApp.Dtos.Response;
@@ -30,7 +31,7 @@ namespace MarketApp.Business.Concrete
             var cat = await _repository.GetByName(category.Name);
             if ( cat != null)
             {
-                throw new InvalidOperationException("Category is already exist with given name");
+                throw new InvalidOperationException(ErrorMessages.Category.AlreadyExistWithGivenName);
             }
             var entity = _mapper.Map<Category>(category);
             return await _repository.Add(entity);
@@ -41,7 +42,7 @@ namespace MarketApp.Business.Concrete
             var entities = await _repository.GetAllEntities();
             if (entities == null)
             {
-                throw new InvalidOperationException("There is no category found");
+                throw new InvalidOperationException(ErrorMessages.Category.NoCategory);
             }
             return _mapper.Map<IList<GetCategoriesResponse>>(entities);
         }
@@ -53,7 +54,7 @@ namespace MarketApp.Business.Concrete
                 var entity = await _repository.GetEntityById(id);
                 return _mapper.Map<GetCategoriesResponse>(entity);
             }
-            throw new InvalidOperationException("Category couldn't found");
+            throw new InvalidOperationException(ErrorMessages.Category.NotFoundWithGivenCategoryId);
         }
 
         public async Task<Category> GetCategoryEntity(int id)
@@ -62,7 +63,7 @@ namespace MarketApp.Business.Concrete
             {
                 return await _repository.GetEntityById(id);
             }
-            throw new InvalidOperationException("Category is not exist");
+            throw new InvalidOperationException(ErrorMessages.Category.NotFoundWithGivenCategoryId);
         }
 
         public async Task RemoveCategory(int id)
@@ -73,14 +74,19 @@ namespace MarketApp.Business.Concrete
             }
             else
             {
-                throw new InvalidOperationException("Category couldn't found");
+                throw new InvalidOperationException(ErrorMessages.Category.NotFoundWithGivenCategoryId);
             }
         }
 
         public async Task<int> UpdateCategory(UpdateCategoryRequest category)
         {
-            var entity = _mapper.Map<Category>(category);
-            return await _repository.Update(entity);
+            if (await _repository.IsExist(category.Id))
+            {
+                var entity = _mapper.Map<Category>(category);
+                return await _repository.Update(entity);
+            }
+            throw new InvalidOperationException(ErrorMessages.Category.NotFoundWithGivenCategoryId);
+            
         }
     }
 }
