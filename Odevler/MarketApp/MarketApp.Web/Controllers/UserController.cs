@@ -37,6 +37,7 @@ namespace MarketApp.Web.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(UserLoginModel model, string? returnUrl)
         {
             if (ModelState.IsValid)
@@ -71,6 +72,7 @@ namespace MarketApp.Web.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
             if (ModelState.IsValid)
@@ -131,6 +133,7 @@ namespace MarketApp.Web.Controllers
             return View();
         }
         [HttpPost("User/Addresses/Add")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddAddress(AddAddressRequest address)
         {
             address.UserId = User.Identity.GetId();
@@ -169,6 +172,7 @@ namespace MarketApp.Web.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
         {
             if (ModelState.IsValid)

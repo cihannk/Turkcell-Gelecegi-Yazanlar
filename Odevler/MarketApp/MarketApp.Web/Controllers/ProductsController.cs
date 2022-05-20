@@ -32,6 +32,7 @@ namespace MarketApp.Web.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(AddProductRequest product)
         {
             if (ModelState.IsValid)
@@ -49,6 +50,7 @@ namespace MarketApp.Web.Controllers
             return View(product);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(UpdateProductRequest productRequest)
         {
             if (ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace MarketApp.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [ActionName(nameof(Delete))]
         public async Task<IActionResult> DeleteOk(int id)
         {

@@ -1,4 +1,6 @@
-﻿using MarketApp.Business.Abstract;
+﻿using Hangfire;
+using MarketApp.API.Filters;
+using MarketApp.Business.Abstract;
 using MarketApp.Business.Constants.SuccessMessages;
 using MarketApp.Dtos.Models;
 using MarketApp.Dtos.Request;
@@ -36,12 +38,14 @@ namespace MarketApp.API.Controllers
             var user = await _userService.GetUser(id);
             return Ok(user);
         }
+        [ModelValidation]
         [HttpPut]
         public async Task<IActionResult> Update(UpdateUserRequest user)
         {
             await _userService.UpdateUser(user);
             return Ok(SuccessMessages.User.SuccessfullyUpdated);
         }
+        [ModelValidation]
         [HttpPost]
         public async Task<IActionResult> Create(UserRegisterModel userModel)
         {
@@ -55,6 +59,7 @@ namespace MarketApp.API.Controllers
             await _userService.DeleteUser(id);
             return Ok(SuccessMessages.User.SuccessfullyDeleted);
         }
+        [ModelValidation]
         [HttpPost("Login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(UserLoginModel model)
@@ -72,6 +77,7 @@ namespace MarketApp.API.Controllers
             string token = GetToken(claims, credential, DateTime.Now.AddMinutes(15), DateTime.Now);
             return Ok(new { token = token });
         }
+        [ModelValidation]
         [HttpPost("Register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register(UserRegisterModel model)
@@ -87,6 +93,7 @@ namespace MarketApp.API.Controllers
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             string token = GetToken(claims, credential, DateTime.Now.AddMinutes(15), DateTime.Now);
+            BackgroundJob.Enqueue(() => ThanksForRegister(user.Username));
             return Ok(new { token = token });
         }
 
@@ -101,6 +108,12 @@ namespace MarketApp.API.Controllers
                 signingCredentials: credentials
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public void ThanksForRegister(string username)
+        {
+            Console.WriteLine($"Thanks for registering {username}");
         }
 
     }

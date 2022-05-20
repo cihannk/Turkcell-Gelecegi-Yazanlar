@@ -1,4 +1,5 @@
 ﻿using MarketApp.API.Extensions;
+using MarketApp.API.Filters;
 using MarketApp.API.Models;
 using MarketApp.Business.Abstract;
 using MarketApp.Business.Constants.ErrorMessages;
@@ -47,16 +48,13 @@ namespace MarketApp.API.Controllers
             var addresses = await _addressService.GetUserAddressesWithUserId(userId);
             return Ok(addresses);
         }
+        [ModelValidation]
         [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<IActionResult> Update(UpdateAddressRequest address)
         {
-            if (ModelState.IsValid)
-            {
-                await _addressService.UpdateAddress(address);
-                return Ok(SuccessMessages.Address.SuccessfullyUpdated);
-            }
-            return BadRequest(ModelState);
+            await _addressService.UpdateAddress(address);
+            return Ok(SuccessMessages.Address.SuccessfullyUpdated);
         }
         [Authorize(Roles = "Admin")]
         [HttpDelete]
@@ -65,6 +63,7 @@ namespace MarketApp.API.Controllers
             await _addressService.DeleteAddress(id);
             return Ok(SuccessMessages.Address.SuccessfullyDeleted);
         }
+        [ModelValidation]
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(AddAddressRequest address)
@@ -73,21 +72,23 @@ namespace MarketApp.API.Controllers
             return CreatedAtAction(nameof(GetById), routeValues: new { id = addressId }, null);
         }
         //Controllers for user
+        [ModelValidation]
         [Authorize]
         [HttpPost("User")]
         public async Task<IActionResult> AddAddressUser(UserAddAddressModel address)
         {
             await _addressService.AddAddress(
-                new AddAddressRequest
-                {
-                    UserId = User.Identity.GetId(),
-                    AddressDetail = address.AddressDetail,
-                    City = address.City,
-                    DesiredName = address.DesiredName,
-                    District = address.District,
-                    Street= address.Street,
-                });
+            new AddAddressRequest
+            {
+                UserId = User.Identity.GetId(),
+                AddressDetail = address.AddressDetail,
+                City = address.City,
+                DesiredName = address.DesiredName,
+                District = address.District,
+                Street = address.Street,
+            });
             return Ok(SuccessMessages.Address.SuccessfullyCreated);
+
         }
         [Authorize]
         [HttpGet("User")]
@@ -95,6 +96,7 @@ namespace MarketApp.API.Controllers
         {
             return Ok(await _addressService.GetAddressById(User.Identity.GetId()));
         }
+        [ModelValidation]
         [Authorize]
         [HttpPut("User")]
         public async Task<IActionResult> UpdateAddressUser(UserUpdateAddressModel address)

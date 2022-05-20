@@ -2,6 +2,7 @@
 using MarketApp.Business.Abstract;
 using MarketApp.Business.Constants.ErrorMessages;
 using MarketApp.DataAccess.Repositories;
+using MarketApp.DataAccess.Repositories.Abstract;
 using MarketApp.Dtos.Request;
 using MarketApp.Entities;
 using System;

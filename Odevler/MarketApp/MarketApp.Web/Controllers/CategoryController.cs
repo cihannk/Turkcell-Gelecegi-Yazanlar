@@ -24,6 +24,7 @@ namespace MarketApp.Web.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(AddCategoryRequest category)
         {
             if (ModelState.IsValid)
@@ -44,6 +45,7 @@ namespace MarketApp.Web.Controllers
             return View(category);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(UpdateCategoryRequest request)
         {
             if (ModelState.IsValid)

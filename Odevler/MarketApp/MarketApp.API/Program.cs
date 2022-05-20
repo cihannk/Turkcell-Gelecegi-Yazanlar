@@ -1,11 +1,15 @@
+using Hangfire;
 using MarketApp.API.Middlewares;
 using MarketApp.Business.Abstract;
 using MarketApp.Business.Concrete;
 using MarketApp.Business.MapperProfile;
 using MarketApp.DataAccess.Contexts;
 using MarketApp.DataAccess.Repositories;
+using MarketApp.DataAccess.Repositories.Abstract;
+using MarketApp.DataAccess.Repositories.Concrete;
 using MarketApp.Web.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Stripe;
@@ -19,12 +23,44 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// for custom filter 
+
+builder.Services.Configure<ApiBehaviorOptions>(opt =>
+{
+    opt.SuppressModelStateInvalidFilter = true;
+});
+
+// ef connection
+
 string connectionString = builder.Configuration.GetConnectionString("DbConnection");
 
 builder.Services.AddDbContext<EfDbContext>(optionsBuilder => optionsBuilder.UseSqlServer(connectionString));
 
+// serialization
+
 builder.Services.AddControllers().AddNewtonsoftJson(options => {
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
+
+// services
+
+string hangfireConnString = builder.Configuration.GetConnectionString("Hangfire");
+builder.Services.AddHangfire(configuration => configuration.UseSqlServerStorage(hangfireConnString));
+builder.Services.AddHangfireServer();
+
+//builder.Services.AddMemoryCache();
+builder.Services.AddResponseCaching();
+builder.Services.AddControllers(options =>
+{
+    options.CacheProfiles.Add("Category", new CacheProfile
+    {
+        Duration = 300,
+        VaryByHeader= "User-Agent"
+    });
+    options.CacheProfiles.Add("Role", new CacheProfile
+    {
+        Duration = 900
+    });
 });
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
@@ -77,22 +113,28 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-//stripe
+// stripe
+
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe").GetValue<string>("SecretKey");
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+app.UseHangfireDashboard("/hangfire");
+
+
 app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 app.UseHttpsRedirection();
 
+app.UseResponseCaching();
 app.UseCors("Allow");
 
 app.UseAuthentication();

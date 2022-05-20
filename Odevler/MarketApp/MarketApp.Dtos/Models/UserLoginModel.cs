@@ -5,6 +5,7 @@ namespace MarketApp.Dtos.Models
     public class UserLoginModel
     {
         [Required(ErrorMessage = "Email boş bırakılamaz")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required(ErrorMessage= "Şifre boş bırakılamaz")]
         [DataType(DataType.Password)]

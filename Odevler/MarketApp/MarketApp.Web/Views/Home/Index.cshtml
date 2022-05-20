@@ -47,7 +47,7 @@
             $('.sepet').on('click', function (){
                 let id = $(this).data('id');
                 $.ajax({
-                    url: 'Cart/Add/' + id,
+                    url: '/Cart/Add/' + id,
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {

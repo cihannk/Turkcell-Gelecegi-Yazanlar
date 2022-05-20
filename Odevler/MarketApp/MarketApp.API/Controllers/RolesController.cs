@@ -1,4 +1,5 @@
-﻿using MarketApp.Business.Abstract;
+﻿using MarketApp.API.Filters;
+using MarketApp.Business.Abstract;
 using MarketApp.Business.Constants.SuccessMessages;
 using MarketApp.Dtos.Request;
 using MarketApp.Entities;
@@ -19,23 +20,27 @@ namespace MarketApp.API.Controllers
             _roleService = roleService;
         }
         [HttpGet]
+        [ResponseCache(CacheProfileName = "Role")]
         public async Task<IActionResult> GetAll()
         {
             var roles = await _roleService.GetAllRoles();
             return Ok(roles);
         }
         [HttpGet("{roleId}")]
+        [ResponseCache(CacheProfileName = "Role")]
         public async Task<IActionResult> GetById(int roleId)
         {
             var role = await _roleService.GetRoleById(roleId);
             return Ok(role);
         }
+        [ModelValidation]
         [HttpPut]
         public async Task<IActionResult> Update(Role role)
         {
             await _roleService.UpdateRole(role);
             return Ok(SuccessMessages.Role.SuccessfullyUpdated);
         }
+        [ModelValidation]
         [HttpPost]
         public async Task<IActionResult> Create(AddRoleRequest role)
         {

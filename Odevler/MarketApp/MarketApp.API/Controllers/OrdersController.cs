@@ -1,4 +1,6 @@
-﻿using MarketApp.API.Extensions;
+﻿using Hangfire;
+using MarketApp.API.Extensions;
+using MarketApp.API.Filters;
 using MarketApp.API.Models;
 using MarketApp.Business.Abstract;
 using MarketApp.Business.Constants.ErrorMessages;
@@ -37,6 +39,7 @@ namespace MarketApp.API.Controllers
             var order = await _orderService.GetOrderById(id);
             return Ok(order);
         }
+        [ModelValidation]
         [HttpPut]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(UpdateOrderRequest order)
@@ -45,6 +48,7 @@ namespace MarketApp.API.Controllers
             await _orderService.UpdateOrder(order);
             return Ok(SuccessMessages.Order.SuccessfullyUpdated);
         }
+        [ModelValidation]
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(AddOrderRequest order)
@@ -60,6 +64,7 @@ namespace MarketApp.API.Controllers
             return Ok(SuccessMessages.Order.SuccessfullyDeleted);
         }
         //Controllers for user
+        [ModelValidation]
         [HttpPost("User")]
         [Authorize]
         public async Task<IActionResult> Order(OrderPaymentModel orderPaymentModel)
@@ -67,6 +72,7 @@ namespace MarketApp.API.Controllers
             if(await _paymentService.Processing(orderPaymentModel.PaymentProcessingInfo))
             {
                 await _orderService.BeginOrder(new AddOrderRequest { UserId= User.Identity.GetId(), AddressId= orderPaymentModel.AddressId, CartItems= orderPaymentModel.CartItems});
+                BackgroundJob.Enqueue(() => ThanksForOrder());
                 return Ok(SuccessMessages.Order.SuccessfullyCreatedUserOrder);
             }
             return BadRequest(ErrorMessages.Order.PaymentFail);
@@ -77,6 +83,13 @@ namespace MarketApp.API.Controllers
         {
             var orders = await _orderService.GetOrdersByUserId(User.Identity.GetId());
             return Ok(orders);
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public void ThanksForOrder()
+        {
+            // Email imitation
+            Console.WriteLine("Thanks for your order");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MarketApp.Business.Abstract;
+﻿using MarketApp.API.Filters;
+using MarketApp.Business.Abstract;
 using MarketApp.Business.Constants.SuccessMessages;
 using MarketApp.Dtos.Request;
 using Microsoft.AspNetCore.Authorization;
@@ -30,27 +31,27 @@ namespace MarketApp.API.Controllers
             var product = await _productService.GetProduct(id);
             return Ok(product);
         }
+        [ModelValidation]
         [Authorize(Roles ="Admin")]
         [HttpPut]
+        [ModelValidation]
         public async Task<IActionResult> Update(UpdateProductRequest product)
         {
-            if (ModelState.IsValid)
-            {
-                await _productService.UpdateProduct(product);
-                return Ok(SuccessMessages.Product.SuccessfullyUpdated);
-            }
-            return BadRequest(ModelState);
+
+            await _productService.UpdateProduct(product);
+            return Ok(SuccessMessages.Product.SuccessfullyUpdated);
+
         }
+        [ModelValidation]
         [Authorize(Roles = "Admin")]
         [HttpPost]
+        [ModelValidation]
         public async Task<IActionResult> Create(AddProductRequest product)
         {
-            if (ModelState.IsValid)
-            {
-                int productId = await _productService.AddProduct(product);
-                return CreatedAtAction(nameof(GetById),routeValues: new {id= productId}, null);
-            }
-            return BadRequest(ModelState);
+
+            int productId = await _productService.AddProduct(product);
+            return CreatedAtAction(nameof(GetById),routeValues: new {id= productId}, null);
+
         }
         [Authorize(Roles = "Admin")]
         [HttpDelete]
