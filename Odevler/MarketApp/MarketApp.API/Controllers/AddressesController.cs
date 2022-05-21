@@ -57,7 +57,7 @@ namespace MarketApp.API.Controllers
             return Ok(SuccessMessages.Address.SuccessfullyUpdated);
         }
         [Authorize(Roles = "Admin")]
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _addressService.DeleteAddress(id);
@@ -94,7 +94,7 @@ namespace MarketApp.API.Controllers
         [HttpGet("User")]
         public async Task<IActionResult> GetAddressesUser()
         {
-            return Ok(await _addressService.GetAddressById(User.Identity.GetId()));
+            return Ok(await _addressService.GetUserAddressesWithUserId(User.Identity.GetId()));
         }
         [ModelValidation]
         [Authorize]

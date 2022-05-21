@@ -56,7 +56,7 @@ namespace MarketApp.API.Controllers
             await _orderService.BeginOrder(order);
             return Ok(SuccessMessages.Order.SuccessfullyCreated);
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {

@@ -5,6 +5,7 @@ using MarketApp.Dtos.Request;
 using MarketApp.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MarketApp.API.Controllers
 {
@@ -14,23 +15,32 @@ namespace MarketApp.API.Controllers
     public class RolesController : ControllerBase
     {
         private readonly IRoleService _roleService;
+        private readonly IMemoryCache _memoryCache;
 
-        public RolesController(IRoleService roleService)
+        public RolesController(IRoleService roleService, IMemoryCache memoryCache)
         {
             _roleService = roleService;
+            _memoryCache = memoryCache;
         }
         [HttpGet]
-        [ResponseCache(CacheProfileName = "Role")]
         public async Task<IActionResult> GetAll()
         {
-            var roles = await _roleService.GetAllRoles();
+            var roles = await _memoryCache.GetOrCreateAsync("roles", async entry =>
+            {
+                entry.AbsoluteExpiration = DateTime.Now.AddMinutes(30);
+                return await _roleService.GetAllRoles();
+            });
+            //var roles = await _roleService.GetAllRoles();
             return Ok(roles);
         }
         [HttpGet("{roleId}")]
-        [ResponseCache(CacheProfileName = "Role")]
         public async Task<IActionResult> GetById(int roleId)
         {
-            var role = await _roleService.GetRoleById(roleId);
+            var role = await _memoryCache.GetOrCreateAsync($"role{roleId}", async (entry) =>
+            {
+                entry.AbsoluteExpiration = DateTime.Now.AddMinutes(15);
+                return await _roleService.GetRoleById(roleId);
+            });
             return Ok(role);
         }
         [ModelValidation]

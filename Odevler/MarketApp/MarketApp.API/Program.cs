@@ -48,7 +48,7 @@ string hangfireConnString = builder.Configuration.GetConnectionString("Hangfire"
 builder.Services.AddHangfire(configuration => configuration.UseSqlServerStorage(hangfireConnString));
 builder.Services.AddHangfireServer();
 
-//builder.Services.AddMemoryCache();
+builder.Services.AddMemoryCache();
 builder.Services.AddResponseCaching();
 builder.Services.AddControllers(options =>
 {
@@ -59,7 +59,8 @@ builder.Services.AddControllers(options =>
     });
     options.CacheProfiles.Add("Role", new CacheProfile
     {
-        Duration = 900
+        Duration = 900,
+        VaryByHeader = "User-Agent"
     });
 });
 
@@ -134,8 +135,8 @@ app.UseHangfireDashboard("/hangfire");
 app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 app.UseHttpsRedirection();
 
-app.UseResponseCaching();
 app.UseCors("Allow");
+app.UseResponseCaching();
 
 app.UseAuthentication();
 app.UseAuthorization();

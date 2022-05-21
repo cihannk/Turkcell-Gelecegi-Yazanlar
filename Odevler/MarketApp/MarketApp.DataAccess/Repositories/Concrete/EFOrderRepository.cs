@@ -26,14 +26,15 @@ namespace MarketApp.DataAccess.Repositories.Concrete
 
         public async Task ClearAllCartItems(int orderId)
         {
-            var order = await _context.Orders.AsNoTracking().Include(order => order.CartItems).FirstOrDefaultAsync(x => x.Id == orderId);
+            var order = await _context.Orders.Include(order => order.CartItems).FirstOrDefaultAsync(x => x.Id == orderId);
             order.CartItems.Clear();
+            _context.Entry(order).State = EntityState.Detached;
             await _context.SaveChangesAsync();
         }
 
         public async Task Delete(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
+            var order = await _context.Orders.FirstOrDefaultAsync(x => x.Id == id);
             _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
         }
@@ -55,7 +56,7 @@ namespace MarketApp.DataAccess.Repositories.Concrete
 
         public async Task<bool> IsExist(int id)
         {
-            return await _context.Orders.AnyAsync(x => x.Id == id);
+            return await _context.Orders.AsNoTracking().AnyAsync(x => x.Id == id);
         }
 
         public async Task<int> Update(Order entity)

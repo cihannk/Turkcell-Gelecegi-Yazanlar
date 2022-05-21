@@ -46,11 +46,14 @@ namespace MarketApp.Business.Concrete
 
         public async Task DeleteUser(int id)
         {
-            if (! await _userRepository.IsExist(id))
+            if (await _userRepository.IsExist(id))
             {
                 await _userRepository.Delete(id);
             }
-            throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
+            else
+            {
+                throw new InvalidOperationException(ErrorMessages.User.NotFoundWithGivenUserId);
+            }
         }
 
         public async Task<IList<GetUsersResponse>> GetAllUsers()

@@ -54,7 +54,7 @@ namespace MarketApp.API.Controllers
 
         }
         [Authorize(Roles = "Admin")]
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
            await _productService.RemoveProduct(id);

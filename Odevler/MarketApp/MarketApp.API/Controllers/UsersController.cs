@@ -53,7 +53,7 @@ namespace MarketApp.API.Controllers
             return CreatedAtAction(nameof(GetById), routeValues: new { id = user.Id }, null);
 
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _userService.DeleteUser(id);

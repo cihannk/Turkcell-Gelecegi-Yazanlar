@@ -13,7 +13,6 @@ namespace MarketApp.API.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
-        private readonly IMemoryCache _memoryCache;
 
         public CategoriesController(ICategoryService categoryService)
         {
